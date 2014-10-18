@@ -1,0 +1,21 @@
+html, body
+{
+	height:100%;
+}
+#header
+{
+	height:100%;
+	text-align:center;
+	padding-top:20%;
+}
+
+#quizWrapper
+{
+	height:100%;
+}
+
+#footer
+{
+	font-size:12px;
+	padding: 8% 5%;
+}
