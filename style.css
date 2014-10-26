@@ -1,18 +1,35 @@
+html
+{
+	background-color: rgba(217, 30, 24, 0.85);
+}
+
 html, body
 {
 	height:100%;
-}
-#header
-{
-	height:100%;
-	text-align:center;
-	padding-top:20%;
+	font-family: 'Fjalla One', sans-serif;
 }
 
-#quizWrapper
+#wrapper
 {
-	height:75%;
-	margin:5% 5% 0% 5%;
+	height:100%;
+	color: rgb(240, 235, 215);
+}
+
+#header
+{
+	height:10%;
+	padding: 0% 5%;
+}
+
+#header h5
+{
+	margin-top: -1.5em;
+}
+
+#tiles
+{
+	height:60%;
+	margin:5% 5% 0% 5%; /*15 instead of 0 works*/
 	padding-bottom: 5%;
 }
 
@@ -20,4 +37,56 @@ html, body
 {
 	font-size:12px;
 	padding: 0% 5% 8% 5%;
+}
+
+hr
+{
+	border-style: solid;
+}
+
+.tile
+{
+	width:30%;
+	height:45%;
+	display:inline-block;
+}
+
+#home
+{
+	background-color: rgb(240, 235, 215);
+}
+
+#projects
+{
+	background-color: rgb(200, 247, 197);
+}
+
+#team
+{
+	background-color: rgb(129, 207, 224);
+}
+
+#donations
+{
+	background-color: rgb(241, 169, 160);
+}
+
+#quiz
+{
+	background-color: rgb(108, 122, 137);
+}
+
+#forum
+{
+	background-color: rgb(103, 128, 159);
+}
+
+#proposal
+{
+	background-color: rgb(248, 148, 6);
+}
+
+#resumes
+{
+	background-color: rgb(174, 168, 211);
 }
