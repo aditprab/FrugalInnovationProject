@@ -5,6 +5,29 @@
 		<title>FIL Quiz</title> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function()
+		{
+			var tiles = $('.tile');
+			var shuffle = function(array){
+				var shuffledArray = [];
+				var length = array.length;
+				while(shuffledArray.length < length)
+				{
+					var random = Math.floor((Math.random() * array.length));
+					shuffledArray.push(array.splice(random, 1)[0]);		//array.splice returns an array
+				}
+				return shuffledArray;
+			}
+			var backgroundColors = [[240, 235, 215], [200, 247, 197], [129, 207, 224], [241, 169, 160], [108, 122, 137], [103, 128, 159], [248, 148, 6], [174, 168, 211]];
+			backgroundColors = shuffle(backgroundColors);
+			for(var i = 0; i < tiles.length; i++)
+			{
+				tiles[i].style.backgroundColor = 'rgb(' + backgroundColors[i][0] + ',' + backgroundColors[i][1] + ',' + backgroundColors[i][2] + ')';
+			}
+		});
+		</script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -15,20 +38,28 @@
 			</div>
 			<div id="tiles">
 				<div id="home" class="tile">
+					Home
 				</div>
 				<div id="projects" class="tile">
+					Projects
 				</div>
 				<div id="team" class="tile">
+					Team
 				</div>
 				<div id="donations" class="tile">
+					Donations
 				</div>
 				<div id="quiz" class="tile">
+					Quiz
 				</div>
 				<div id="forum" class="tile">
+					Forum
 				</div>
 				<div id="proposal" class="tile">
+					Proposal
 				</div>
 				<div id="resumes" class="tile">
+					Résumés
 				</div>
 			</div>
 			<div id="footer">

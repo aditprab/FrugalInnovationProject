@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Frugal Innovation | Quiz</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300|Economica:400,700' rel='stylesheet' type='text/css'>
+	<script>
+		var time/*Limit*/ = 60/*seconds*/;
+		var timer = function() {
+			if (time > 0){
+				var min = Math.floor((time / 60));
+				var secTens = (Math.floor((time % 60) / 10)).toString();
+				var sec = (Math.floor((time % 60) % 10)).toString();
+				$("#quiz").html('<h2>' + min + ':' + secTens + sec + '</h2>');		/***********************Change where the timer appends to************************/
+				time--;
+				ctimer = setTimeout(timer, 1000);		//calls the first parameter after second parameter amount of time has elapsed. 
+			}
+			else //if the time has run out
+			{
+				$("#quiz").html('<h2>0:00</h2>');
+				//things to do when time runs out.
+			}
+		}
+
+		var shuffle = function(array){
+			var shuffledArray = [];
+			var length = array.length;
+			while(shuffledArray.length < length)
+			{
+				var random = Math.floor((Math.random() * array.length));
+				shuffledArray.push(array.splice(random, 1)[0]);		//array.splice returns an array
+			}
+			return shuffledArray;
+		};	//use function to shuffle array of questions and therefore you can just iterate through them as usual while randomizing choices.
+
+
+		$(document).ready(function(){
+			$("#beginQuiz").click(function(){
+				// document.getElementById("quiz").style.paddingBottom = "10%";			working
+				//$("#quiz").style.paddingBottom = "10%"/*height of the footer*/; not working
+				timer();
+				return false;
+			});
+		});
+		
+	</script>
+	<style>
+		html
+		{
+			font-family: 'Lato', sans-serif;	
+		}
+		body
+		{
+			padding:0 5%;
+			position:relative;
+		}
+		html, body
+		{
+			height:100%;
+		}
+		h1, h5
+		{
+			font-family: 'Economica', sans-serif;
+		}
+		.center
+		{
+			text-align:center;
+		}
+
+		#beginQuiz
+		{
+			display:inline-block;
+			padding:2% 1%;
+			text-align:center;
+			width:30%;
+			margin:0 auto;
+			border: 1px solid rgba(0, 0, 0, 0.25);
+		}
+
+		.center a
+		{
+			text-decoration:none;
+			color:black;
+		}
+		#bannerImg
+		{
+			display:block;
+			margin:5% auto;
+			width:75%;
+		}
+		#quiz
+		{
+			overflow:auto;
+			padding-bottom:20%;
+		}
+		#footer
+		{
+			position:relative;
+			height:10%;
+			margin-top:-10%;
+		}
+		#footer a
+		{
+			text-decoration:none;
+			color:#6699FF;
+		}
+	</style>
+</head>
+<body>
+	<div id="banner"</div>
+		<h1>Frugal Innovation Lab</h1>
+		<h5>Innovation • Technology • Entreprenuership</h5>
+	</div>
+	<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
+	<div class="center"><a href="#"><div id="beginQuiz">Take the Quiz</div></a></div>
+	<div id="quiz">
+	</div>
+	<div id="footer">
+		<h5>Created by <a href="https://github.com/aditprab">Adithya Prabhakaran</a> &amp; <a href="https://github.com/ntlam">Nathan Lam</a> aka Rollpt2</h5>
+	</div>
+</body>
+</html>

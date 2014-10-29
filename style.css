@@ -1,6 +1,6 @@
 html
 {
-	background-color: rgba(217, 30, 24, 0.85);
+/*color would go here*/
 }
 
 html, body
@@ -48,8 +48,11 @@ hr
 {
 	width:30%;
 	height:45%;
+	text-align: center;
 	display:inline-block;
 }
+
+text.title 
 
 #home
 {
