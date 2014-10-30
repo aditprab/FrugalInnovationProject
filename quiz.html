@@ -12,9 +12,9 @@
 				var min = Math.floor((time / 60));
 				var secTens = (Math.floor((time % 60) / 10)).toString();
 				var sec = (Math.floor((time % 60) % 10)).toString();
-				$("#quiz").html('<h2>' + min + ':' + secTens + sec + '</h2>');		/***********************Change where the timer appends to************************/
+				$("#quiz").html('<h2>' + min + ':' + secTens + sec + '</h2>'); /***********************Change where the timer appends to************************/
 				time--;
-				ctimer = setTimeout(timer, 1000);		//calls the first parameter after second parameter amount of time has elapsed. 
+				ctimer = setTimeout(timer, 1000); //calls the first parameter after second parameter amount of time has elapsed. 
 			}
 			else //if the time has run out
 			{
