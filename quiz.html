@@ -6,21 +6,55 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Lato:300|Economica:400,700' rel='stylesheet' type='text/css'>
 	<script>
-		var time/*Limit*/ = 60/*seconds*/;
+	var changeLogo = function(){
+				var imgFileName;
+				// if(/*subject == FIL*/)
+				// {
+				// 	break;
+				// }
+				// else if(/*subject == basketball*/)
+				// {
+				// 	imgFileName = "basketball.png";
+				// }
+				// else if(/*subject == geography*/)
+				// {
+				// 	imgFileName = "globe.png";
+				// }
+				$("#logo").attr("src", /*imgFileName*/"globe.png");
+			};
+			
+
+		var timeLimit = 15/*seconds*/;
+		var time = timeLimit;
 		var timer = function() {
-			if (time > 0){
+			if(time <= 10 && time > 0)
+			{
 				var min = Math.floor((time / 60));
 				var secTens = (Math.floor((time % 60) / 10)).toString();
 				var sec = (Math.floor((time % 60) % 10)).toString();
-				$("#quiz").html('<h2>' + min + ':' + secTens + sec + '</h2>'); /***********************Change where the timer appends to************************/
+				$("#timer").html('<h2>' + min + ':' + secTens + sec + '</h2>')
+						  .animate({fontSize:'2em'})
+						  .animate({fontSize:'1em'});
+				time--;
+				ctimer = setTimeout(timer, 1000);
+			}
+			else if (time > 0){
+				var min = Math.floor((time / 60));
+				var secTens = (Math.floor((time % 60) / 10)).toString();
+				var sec = (Math.floor((time % 60) % 10)).toString();
+				$("#timer").html('<h2>' + min + ':' + secTens + sec + '</h2>'); /***********************Change where the timer appends to************************/
 				time--;
 				ctimer = setTimeout(timer, 1000); //calls the first parameter after second parameter amount of time has elapsed. 
 			}
 			else //if the time has run out
 			{
-				$("#quiz").html('<h2>0:00</h2>');
+				$("#timer").html('<h2>0:00</h2>');
+				time = timeLimit;
 				//things to do when time runs out.
 			}
+		}
+		var resetQuiz = function(){		//set this as an eventhandler for reset button
+			time = timeLimit;
 		}
 
 		var shuffle = function(array){
@@ -34,14 +68,37 @@
 			return shuffledArray;
 		};	//use function to shuffle array of questions and therefore you can just iterate through them as usual while randomizing choices.
 
-
+		var date = function(){
+			var d = new Date();
+			$("#date").empty().html("<h5>" + d.toDateString() +"</h5>");
+					};
+		
 		$(document).ready(function(){
+			//choose a random subject matter to quiz
+			//display subject in the title section
+			changeLogo();
+			date();
 			$("#beginQuiz").click(function(){
 				// document.getElementById("quiz").style.paddingBottom = "10%";			working
-				//$("#quiz").style.paddingBottom = "10%"/*height of the footer*/; not working
+				$("#scoreboard").html();
+				$("#scoreboard").html();
+				$("#scoreboard").html();
+				
+				$("#buttons").html('<a href="#"><div id="prev" class="button">prev</div></a>');
+				$("#prev").click(/*assign the function that handles returning the previous question*/ )
+				$("#buttons").append('<a href="#"><div id="reset" class="button">reset</div></a>');
+				$("#reset").click(function(){
+					resetQuiz();
+					return false;
+				});
+				$("#buttons").append('<a href="#"><div id ="next" class="button">next</div></a>');
+				$("#next").click(/*assign the function that handles returning the next question*/ )
+			
+			
 				timer();
 				return false;
 			});
+
 		});
 		
 	</script>
@@ -77,11 +134,25 @@
 			margin:0 auto;
 			border: 1px solid rgba(0, 0, 0, 0.25);
 		}
-
+		.button
+		{
+			display:inline-block;
+			padding:1% 1%;
+			font-size: .75em;
+			text-align:center;
+			width:3%;
+			margin:2% 0.5%;
+			border: 1px solid rgba(0, 0, 0, 0.25);
+		}
 		.center a
 		{
 			text-decoration:none;
 			color:black;
+		}
+		#banner
+		{
+			display:inline-block;
+			margin-left:0.75%;
 		}
 		#bannerImg
 		{
@@ -89,6 +160,12 @@
 			margin:5% auto;
 			width:75%;
 		}
+
+		#banner h5, h6
+		{
+			margin-top:-20px;
+		}
+
 		#quiz
 		{
 			overflow:auto;
@@ -105,18 +182,45 @@
 			text-decoration:none;
 			color:#6699FF;
 		}
+		#scoreboard
+		{
+
+		}
+		#date
+		{
+			padding-top:2%;
+			float:right;
+		}
+		#logo
+		{
+			display:inline;
+			height:5em;
+		}
 	</style>
 </head>
 <body>
+	<img src="SCUSeal.png" alt="SCU's Seal" id="logo"/>
+	<div id="date"></div>
 	<div id="banner"</div>
+		
 		<h1>Frugal Innovation Lab</h1>
 		<h5>Innovation • Technology • Entreprenuership</h5>
+		<h6>&nbsp;</h6>
+
 	</div>
 	<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
 	<div class="center"><a href="#"><div id="beginQuiz">Take the Quiz</div></a></div>
-	<div id="quiz">
+	<div id="quiz"> 
+		<div id="scoreboard" class="center">
+			<div id="correct"></div>
+			<div id="timer"></div>
+			<div id="incorrect"></div>
+		</div>
+		<div id="buttons" class="center">
+		</div>
 	</div>
 	<div id="footer">
+		<hr/>
 		<h5>Created by <a href="https://github.com/aditprab">Adithya Prabhakaran</a> &amp; <a href="https://github.com/ntlam">Nathan Lam</a> aka Rollpt2</h5>
 	</div>
 </body>
