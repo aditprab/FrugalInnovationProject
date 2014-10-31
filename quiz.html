@@ -13,6 +13,7 @@
 	var subjectMatterArray = ["Frugal Innovation", "Sports", "Geography"];
 	var currentQuizNumber;
 	var numberOfQuizzesDone = 0;
+	var quizIndex = 0;
 
 	var timeLimit = 85/*seconds*/;
 	var time = timeLimit;
@@ -111,21 +112,26 @@
 		//Takes the subject name as a parameter.
 		//Pull the questions file assosciated with that subject name, put all the objects in an array, shuffle. 
 		//return array. 
+		var objectArray; 
+
 		if(questionsName == "Frugal Innovation"){
 			var length = frugalInnovationQuiz.length; //has global scope
-			var array = [];
-			//sub();
-			//Put all questions into an array:
-			var i;
-			for(i=0; i < length; i++)
-			{
-				var object = frugalInnovationQuiz[i];
-				array.push(object);
-			}
-			array = shuffle(array); //Shuffles frugal innovation lab question objects. 
+			objectArray = frugalInnovationQuiz;
 		}
+		else if(questionsName == "Sports"){
+			var length = sports.length;
+			objectArray = sports;
 
-		return array;
+		}
+		else{
+			//Geo case
+			var length = geography.length;
+			objectArray = geography;
+		}
+		
+		objectArray = shuffle(objectArray); //Shuffles frugal innovation lab question objects. 
+		
+		return objectArray;
 	}
 
 	function buildQuestionAndPlaceInDocument(questionObject){
@@ -137,38 +143,21 @@
 
 	var stop = function(){
 		time = 0;
-		$("#quiz").append('<h4 id="thanks" class="center"> Thanks for doing the quiz! </h4>');
-			$("#thanks").animate({fontSize:'2em'});
-			if(numberOfQuizzesDone != subjectMatterArray.length){
-				//Conditional, when stop is clicked, only offer another quiz if they haven't done the other quizzes. 
-				$("#quiz").append('<a href="#"><div id="anotherQuiz" class="center"> Another Quiz </div></a>');
-				$("#anotherQuiz").click(function(){
-					var subjectMatter = randomSubjectMatter();
-					alert(subjectMatter);
-						if(subjectMatter == null)
-						{
-							//randomSubjectMatter returned null, so no more quizzes!
-							return;
-						}
-					var array = initializeQuestions(subjectMatter);
-					$("#scoreboard").html();
-					$("#scoreboard").html();
-					$("#scoreboard").html();
-					$("#next").click(buildQuestionAndPlaceInDocument(array)); //Register handler. 
-					$("#quizName").empty().append("<h3>" + subjectMatter +"</h3>");
-					changeLogo();
-					$("#quizName").animate({fontSize:'2em'});
-					$("#beginQuiz").remove();
-					$("#thanks").remove();
-					$("#anotherQuiz").remove();
-						for(var i=0; i < array.length; i++)
-						{
-							//Loop through array of questions objects. Pass to buildQuestionAndPlaceInDocument. 
-							buildQuestionAndPlaceInDocument(array[i]);
-						}
-					timer();
-					});
-				}
+		$("#quizQuestion").empty().append('<h4 id="thanks" class="center"> Thanks for doing the quiz! </h4>');
+			
+	};
+
+	function createRadio(questionObject){
+		var choiceStringArray = questionObject.choices;
+		for(var i=0; i < choiceStringArray.length; i++)
+		{
+			var choiceString = choiceStringArray[i];
+			var radioBtn = $('<input type="radio" name="rbtnCount"' + choiceString + '/>');
+			alert("choice string = " + choiceString);
+			radioBtn.appendTo('#quizName');
+
+		}
+		
 	};
 
 	$(document).ready(function(){
@@ -190,27 +179,30 @@
 
 			$("#buttons").append('<a href="#"><div id ="next" class="button">next</div></a>');
 			var subjectMatter = randomSubjectMatter();
-			var array = initializeQuestions(subjectMatter);
 			alert(subjectMatter);
-			$("#quizName").empty().append("<h3>" + subjectMatter +"</h3>");
+			var array = initializeQuestions(subjectMatter);
+			alert(array);
+
 			changeLogo();
 			$("#quizName").animate({fontSize:'2em'});
 			$("#beginQuiz").remove();
-			var i = 0;
+			$("#quizName").empty().append("<h3>" + subjectMatter +"</h3>");
+			$("#quizQuestion").append(array[0].question);
+			createRadio(array[0]);
+			$("#next").click(function(){
+				quizIndex++;
+				alert(array[quizIndex].question);
+				alert("we up in here");
+				$("#quizQuestion").empty().append(array[quizIndex].question);
+				createRadio(array[quizIndex]);
+			});
 			timer();
-			var length = array.length;
-					while(i <= length)
-						{
-							//Loop through array of questions objects. Pass to buildQuestionAndPlaceInDocument. 
-							buildQuestionAndPlaceInDocument(array[i]);
-							$("#next").click(function(){
-								i++;
-							});
-						}
+			
 			return false;
 		});
 
 	});	
+	
 
 	</script>
 
@@ -329,6 +321,7 @@
 			<div id="correct"></div>
 			<div id="incorrect"></div>
 		</div>
+		<div id="quizQuestion" class="center"></div>
 		<div id="buttons" class="center">
 		</div>
 		<div id="timer" class="center"></div>
