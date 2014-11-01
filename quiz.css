@@ -1,0 +1,119 @@
+html
+{
+	font-family: 'Lato', sans-serif;	
+}
+body
+{
+	padding:0 5%;
+	position:relative;
+}
+html, body
+{
+	height:100%;
+}
+#date, #banner, #footer
+{
+	font-family: 'Economica', sans-serif;
+}
+.center
+{
+	text-align:center;
+}
+
+#beginQuiz
+{
+	display:inline-block;
+	padding:2% 1%;
+	text-align:center;
+	width:30%;
+	margin:0 auto;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.button
+{
+	display:inline-block;
+	padding:1% 1%;
+	font-size: .75em;
+	text-align:center;
+	width:3%;
+	margin:2% 0.5%;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.center a
+{
+	text-decoration:none;
+	color:black;
+}
+#banner
+{
+	display:inline-block;
+	margin-left:0.75%;
+}
+#bannerImg
+{
+	display:block;
+	margin:5% auto;
+	width:75%;
+}
+
+#banner h5, h6
+{
+	margin-top:-20px;
+}
+
+#quiz
+{
+	overflow:auto;
+	padding-bottom:20%;
+}
+#footer
+{
+	position:relative;
+	height:10%;
+	margin-top:-10%;
+}
+#footer a
+{
+	text-decoration:none;
+	color:#6699FF;
+}
+#scoreboard
+{
+
+}
+#date
+{
+	padding-top:2%;
+	float:right;
+}
+#logo
+{
+	display:inline;
+	height:5em;
+}
+.jumbotron
+{
+	display:inline-block;
+	margin: 1%;
+}
+#quiz
+{
+	text-align: center;
+}
+#quizChoices
+{
+	display:inline-block;
+	text-align: left;
+}
+#quizName h3
+{
+	margin-bottom:-5px;
+}
+#correct
+{
+	color:#2ecc71;
+}
+#incorrect
+{
+	color:#e74c3c;
+}
