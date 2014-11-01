@@ -135,7 +135,8 @@ function buildQuestionAndPlaceInDocument(questionObject){
 var stop = function(){
 	time = 0;
 	$("#quizChoices").empty();
-	$("#quizQuestion").empty().append('<h4 id="thanks" class="center"> Thanks for taking the quiz! </h4>');
+	$("#quizQuestion").empty().append('<h3>Congratulations! You got ' + correct + ' correct!</h3>');
+	$("#quizQuestion").append('<h4 id="thanks" class="center"> Thanks for taking the quiz! </h4>');
 	//make the # correct and # incorrect larger
 }
 
@@ -209,19 +210,19 @@ $(document).ready(function(){
 				alert("You must select an answer!");
 				return false;
 		}
-		//condition for getting to the end of quiz
 		if(quizIndex == array.length - 1)
 		{
+			gradeQuiz(array);
 			stop();
-			displayScores();
 			return;
 		}
-
 		gradeQuiz(array);
 		quizIndex++;
 		$("#quizQuestion").empty().append(array[quizIndex].question);
 		$("#quizChoices").css("padding-top", "1em");
 		createRadio(array[quizIndex]);
+		//condition for getting to the end of quiz
+		
 	});
 
 	

@@ -19,9 +19,15 @@ var geography = [
 	      	"score": 5
 	      },
 	      {
-	      	"question": "What African country borders Egypt to the east?",
+	      	"question": "What African country borders Egypt to the west?",
 	      	"choices":["Zamibia", "Somalia", "Libya", "Morrocco"],
-	      	"correctChoice": "",
+	      	"correctChoice": "Libya",
+	      	"score": 5
+	      },
+	      {
+	      	"question": "Which of the following is closest to the equator?",
+	      	"choices":["Antartica", "New Zealand", "United States", "Columbia"],
+	      	"correctChoice": "Columbia",
 	      	"score": 5
 	      }
 ]

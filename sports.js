@@ -10,7 +10,6 @@ var sports = [
 	      	"choices":["Basketball", "Soccer", "Hockey", "Bowling"],
 	      	"correctChoice": "Soccer",
 	      	"score": 5
-	  
 	      },
 	      {
 	      	"question": "Who holds the NBA single game scoring record?",
@@ -22,6 +21,12 @@ var sports = [
 	      	"question": "Who was the last NBA champion?",
 	      	"choices":["Spurs", "Heat", "Warriors", "Celtics", "Someone Else"],
 	      	"correctChoice": "Spurs",
+	      	"score": 5
+	      },
+	      {
+	      	"question":"Which of the following is NOT a NFL starting quarterback?",
+	      	"choices":["Tom Brady", "Aaron Rodgers", "Peyton Manning", "Colin Kaepernick", "Shaun White"],
+	      	"correctChoice":"Shaun White",
 	      	"score": 5
 	      }
 ]
