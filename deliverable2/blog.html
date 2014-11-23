@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Frugal Innovation | Blog</title>
+    <style>
+        h5
+        {
+            margin-bottom:0;
+        }
+        textarea, input
+        {
+            display:block;
+        }
+        textarea
+        {
+            resize:none;
+            overflow:auto;
+            height:12em;
+        }
+        input
+        {
+        }
+        textarea, #title, #author, #tag
+        {
+            border:1px solid rgba(215,215,215,1.0);
+            width:100%;
+        }
+        #container
+        {
+            width:50%;
+            margin: 0 auto;
+        }
+        #button
+        {
+            margin-top:2em;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#blogForm").submit(function(e){
+                e.preventDefault();   
+                $.post("blog.php", $("#blogForm").serialize());
+                // alert($("#title").val().length);
+                // if($("#title").val().length == 0){
+                //      alert("in here");
+                //      $("#title").style("border-color", "rgb(207,0,15)");
+                //      if($("#post").val().length == 0){
+                //              alert("ballsack");
+                //              $("post").style("border-color", "rgb(207,0,15)");
+                //              alert("Sorry, but the title and post fields are mandatory.");
+                //              return;
+                //      }
+                //      alert("Sorry, but the title field is mandatory.");
+                //      return;
+                // }
+            });
+        });
+    </script>
+</head>
+<body>
+	<div id="container">
+        <form id="blogForm">
+            <h5>Title:</h5>
+            <input type="text" id="title" name="title"/>
+            <h5>Post:</h5>
+            <textarea id="post" name="post" maxlength="1000" form="blogForm"></textarea>
+            <h5>Author: (if left empty, will be posted anonymously)</h5>
+            <input type="text" id="author" name="author"/>
+            <h5>Tags:</h5>
+            <input type="text" id="tag" name="tag"/>
+            <input type="submit" id="button" value="Create Post"/>
+        </form>
+    </div>
+</body>
+</html>
