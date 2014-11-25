@@ -3,33 +3,30 @@
 <head>
     <meta charset="utf-8">
     <title>Frugal Innovation | Blog</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
+    <link href='style.css' rel='stylesheet' type='text/css'>
     <style>
-        h5
+        #banner, #blog
+        {
+            width:68%;
+        }
+        h4
         {
             margin-bottom:0;
         }
-        textarea, input
+        .date
         {
-            display:block;
+            margin-top:-20px;
         }
-        textarea
+        #blog
         {
-            resize:none;
-            overflow:auto;
-            height:12em;
+            margin: 0 auto;
         }
-        input
-        {
-        }
-        textarea, #title, #author, #tag
-        {
-            border:1px solid rgba(215,215,215,1.0);
-            width:100%;
-        }
-        #container
+        #newPost
         {
             width:50%;
             margin: 0 auto;
+            padding-bottom:8%;
         }
         #button
         {
@@ -39,36 +36,60 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
+            $.post("showBlog.php", null, function(data, status){
+                $("#blog").empty().append(data);
+                $("#blog").append("<hr/>");
+            });
             $("#blogForm").submit(function(e){
                 e.preventDefault();   
-                $.post("blog.php", $("#blogForm").serialize());
-                // alert($("#title").val().length);
-                // if($("#title").val().length == 0){
-                //      alert("in here");
-                //      $("#title").style("border-color", "rgb(207,0,15)");
-                //      if($("#post").val().length == 0){
-                //              alert("ballsack");
-                //              $("post").style("border-color", "rgb(207,0,15)");
-                //              alert("Sorry, but the title and post fields are mandatory.");
-                //              return;
-                //      }
-                //      alert("Sorry, but the title field is mandatory.");
-                //      return;
-                // }
+                if($("#title").val() === ""){
+                    $("#title").css("border-color", "rgb(255,0,0)");
+                    if($("#post").val() === ""){
+                        $("#post").css("border-color", "rgb(255,0,0)");
+                            alert("The title and post fields are necessary for post submission!");
+                                 return;
+                    }
+                    else if($("#post").val() === ""){
+                        $("#post").css("border-color", "rgb(255,0,0)");
+                        alert("The post field is necessary for post submission!");
+                        return;
+                    }
+                    alert("The title field is necessary for post submission!");
+                    return;
+                }
+                $.post("blog.php", $("#blogForm").serialize(), function(){
+                    $("#title").val("");
+                    $("#title").css("border-color", "rgba(215,215,215,1.0)");
+                    $("#post").val("");
+                    $("#post").css("border-color", "rgba(215,215,215,1.0)");
+                    $("#author").val("");
+                    $("#tag").val("");
+                    $.post("showBlog.php", null, function(data, status){
+                        $("#blog").empty().append(data);
+                        $("#blog").append("<hr/>");
+                    });
+                });
             });
         });
     </script>
 </head>
 <body>
-	<div id="container">
+    <div id="banner">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
+        <div id="bannerText"><h2>Frugal Innovation Blog</h2></div>
+    </div>
+    <div id="blog">
+    </div>
+    <div id="newPost">
+        <h2>New Post</h2>
         <form id="blogForm">
-            <h5>Title:</h5>
+            <h4>Title:</h4>
             <input type="text" id="title" name="title"/>
-            <h5>Post:</h5>
+            <h4>Post:</h4>
             <textarea id="post" name="post" maxlength="1000" form="blogForm"></textarea>
-            <h5>Author: (if left empty, will be posted anonymously)</h5>
+            <h4>Author: (if left empty, will be posted anonymously)</h4>
             <input type="text" id="author" name="author"/>
-            <h5>Tags:</h5>
+            <h4>Tags:</h4>
             <input type="text" id="tag" name="tag"/>
             <input type="submit" id="button" value="Create Post"/>
         </form>
