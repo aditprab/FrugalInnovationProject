@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Frugal Innovation | Blog</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        html, body
+        {
+            font-family:Lato, sans-serif;
+            height:100%;
+        }
+
+        #bannerText
+        {
+            position:relative;
+            top:20%;
+            background-color: white;
+            width:70%;
+            height:20%;
+            padding:5% 0;
+            margin:0 auto;
+            text-align:center;
+        }
+        #progress{
+            margin-left:auto;
+            margin-right:auto
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="bannerText">
+        <h1>Donations</h1>
+    <div>
+        <progress id="progress"value="0" max="100"></progress>
+    </div>
+    <form>
+    <div id="firstStep">
+    <h3> Select a Tier </h3>
+    <input type="radio" id="1"> Option 1: $13.30 (Level 1): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
+    <br><br>
+    <input type="radio" id="2"> $17.65 (Level 2): Supports the wages and benefits of a graduate student to work for one hour on a FIL project!
+    <br><br>
+    <input type="radio" id="3"> $39.95 (Level 3): Purchases one Raspberry Pi (or similar products) for the development of mobile applications, smart sensors, or other solutions for our field-based social enterprises.
+    <br><br>
+    <input type="radio" id="4">$78.60 (Level 4): Covers the average cost of admittance to a FIL related conference for a faculty/staff member. 
+    <br><br>
+    <input type="radio" id="5">$500 (Level 5): Provides a Senior Design team with enough money to buy materials for their prototype. 
+    <br><br>
+    <input type="radio" id="6">$898 (Level 6): Accommodates one student’s air fare to South America to field test their prototypes with FIL university and enterprise partners. 
+    <br><br>
+    <input type="radio" id="7"><em> $1,500 (Level 7): Makes you exceptionally awesome. </em> 
+    <br><br>
+    <input class="button" type="submit" value="Next">
+    </form>
+    <div>
+    </div>
+   
+</body>
+<script>
+    
+   $( ".button" ).click(function() {
+        var radios = document.getElementsByTagName('input');
+        var value;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].type === 'radio' && radios[i].checked) {
+                value = radios[i].id;
+
+            }
+        }
+
+        $("#firstStep").empty();
+        var pBar = document.getElementById('progress');
+        pBar.value = 30;
+
+        $("#firstStep").append('<form>');
+        $("#firstStep").append('<p> Your Full Name : </p> <input type="text" name="Name" >');
+        $("#firstStep").append('<p> Credit Card Info: </p> <input type="text" name="CC" >');
+        $("#firstStep").append('<p> CVV (Back of the Card) : </p> <input type="text" name="CVV">');
+        $("#firstStep").append('<p> Date: </p> <input type="text" name="Data">');
+        $("#firstStep").append('<br><br>');
+        $("#firstStep").append('<input id="finalSubmit" type="submit" value="Donate!">');
+        $("#firstStep").append('</form>');
+
+          $( "#finalSubmit" ).click(function() {
+            pBar.value=100;
+        });
+    });
+
+
+
+</script>      
+</html>
