@@ -12,14 +12,13 @@
             height:100%;
         }
 
-        #bannerText
+        #overall
         {
             position:relative;
-            top:20%;
-            background-color: white;
+            top:5%;
             width:70%;
             height:20%;
-            padding:5% 0;
+            padding:5% 0%;
             margin:0 auto;
             text-align:center;
         }
@@ -27,69 +26,94 @@
             margin-left:auto;
             margin-right:auto
         }
+
+        #firstStep{
+            border: 1px gray;
+        }
         
     </style>
 </head>
 <body>
-    <div id="bannerText">
+    <div id="overall">
         <h1>Donations</h1>
-    <div>
+    <div id="progress">
         <progress id="progress"value="0" max="100"></progress>
+        <p> Step 1 of 2 </p>
     </div>
     <form>
     <div id="firstStep">
     <h3> Select a Tier </h3>
-    <input type="radio" id="1"> Option 1: $13.30 (Level 1): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
+    <input type="radio" id="13.30"> Option 1: $13.30 (Level 1): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
     <br><br>
-    <input type="radio" id="2"> $17.65 (Level 2): Supports the wages and benefits of a graduate student to work for one hour on a FIL project!
+    <input type="radio" id="17.65"> $17.65 (Level 2): Supports the wages and benefits of a graduate student to work for one hour on a FIL project!
     <br><br>
-    <input type="radio" id="3"> $39.95 (Level 3): Purchases one Raspberry Pi (or similar products) for the development of mobile applications, smart sensors, or other solutions for our field-based social enterprises.
+    <input type="radio" id="39.95"> $39.95 (Level 3): Purchases one Raspberry Pi (or similar products) for the development of mobile applications, smart sensors, or other solutions for our field-based social enterprises.
     <br><br>
-    <input type="radio" id="4">$78.60 (Level 4): Covers the average cost of admittance to a FIL related conference for a faculty/staff member. 
+    <input type="radio" id="78.60">$78.60 (Level 4): Covers the average cost of admittance to a FIL related conference for a faculty/staff member. 
     <br><br>
-    <input type="radio" id="5">$500 (Level 5): Provides a Senior Design team with enough money to buy materials for their prototype. 
+    <input type="radio" id="500">$500 (Level 5): Provides a Senior Design team with enough money to buy materials for their prototype. 
     <br><br>
-    <input type="radio" id="6">$898 (Level 6): Accommodates one student’s air fare to South America to field test their prototypes with FIL university and enterprise partners. 
+    <input type="radio" id="898">$898 (Level 6): Accommodates one student’s air fare to South America to field test their prototypes with FIL university and enterprise partners. 
     <br><br>
-    <input type="radio" id="7"><em> $1,500 (Level 7): Makes you exceptionally awesome. </em> 
+    <input type="radio" id="1500"><em> $1,500 (Level 7): Makes you exceptionally awesome. </em> 
     <br><br>
     <input class="button" type="submit" value="Next">
     </form>
     <div>
     </div>
-   
 </body>
 <script>
-    
-   $( ".button" ).click(function() {
+ $( ".button" ).click(function() {
         var radios = document.getElementsByTagName('input');
         var value;
         for (var i = 0; i < radios.length; i++) {
             if (radios[i].type === 'radio' && radios[i].checked) {
                 value = radios[i].id;
-
             }
         }
 
+        $("#progress").empty();
         $("#firstStep").empty();
         var pBar = document.getElementById('progress');
-        pBar.value = 30;
+        pBar.value = 50;
+        $("#progress").append("<p> Step 2 of 2 <p>");
 
-        $("#firstStep").append('<form>');
+        $("#firstStep").append('<form action="donations.php" method="post">');
         $("#firstStep").append('<p> Your Full Name : </p> <input type="text" name="Name" >');
-        $("#firstStep").append('<p> Credit Card Info: </p> <input type="text" name="CC" >');
+        $("#firstStep").append('<p> Credit Card Info: </p> <input type="text" id="card" name="CC" >');
         $("#firstStep").append('<p> CVV (Back of the Card) : </p> <input type="text" name="CVV">');
-        $("#firstStep").append('<p> Date: </p> <input type="text" name="Data">');
+        $("#firstStep").append('<p> Date: </p> <input type="text" name="Date">');
         $("#firstStep").append('<br><br>');
-        $("#firstStep").append('<input id="finalSubmit" type="submit" value="Donate!">');
+        var string = '<input type="hidden" name="donationAmount" value="'+value+'">';
+        $("#firstStep").append(string);
+        $("#firstStep").append('<input type="submit" id="finalSubmit" value="Donate!">');
         $("#firstStep").append('</form>');
 
-          $( "#finalSubmit" ).click(function() {
+
+        $("#finalSubmit" ).click(function() {
+            var creditCardInfo = document.getElementById('card').value;
+            validateCreditCardInfo(creditCardInfo);
+            alert("aaaand we're back!");
             pBar.value=100;
-        });
-    });
 
-
-
-</script>      
+            $("#firstStep").empty();
+            $("#firstStep").append('<h1> Thank you for your generous donation! </h1>');
+            
+                function validateCreditCardInfo(creditCardInfo){
+                alert("CALLED.");
+                var visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
+                var masterCard = /^5[1-5][0-9]{14}$/;
+                var americanExpress = /3[47][0-9]{13}/;
+                alert("Called 2");
+                if((americanExpress.test(creditCardInfo))){
+                    alert("in if.");
+                    //if none match, alert. 
+                        alert("Your credit card info does not matche a valid format.");
+                    }
+                    alert("exited if");
+                    return;
+                }
+        });      
+});
+</script>
 </html>
