@@ -37,11 +37,11 @@
     <div id="overall">
         <h1>Donations</h1>
     <div id="progress">
-        <progress id="progress"value="0" max="100"></progress>
-        <p> Step 1 of 2 </p>
+        <progress id="progress2" value="0" max="100"></progress>
     </div>
     <form>
     <div id="firstStep">
+    <p> <em> Step 1 of 2 </em> </p>
     <h3> Select a Tier </h3>
     <input type="radio" id="13.30"> Option 1: $13.30 (Level 1): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
     <br><br>
@@ -63,7 +63,8 @@
     </div>
 </body>
 <script>
- $( ".button" ).click(function() {
+ $( ".button" ).click(function(e) {
+        e.preventDefault();
         var radios = document.getElementsByTagName('input');
         var value;
         for (var i = 0; i < radios.length; i++) {
@@ -71,17 +72,22 @@
                 value = radios[i].id;
             }
         }
+        
+        if(typeof value == 'undefined') {
+            alert("You have yet to select a tier for donation!");
+            return;
+        }
 
-        $("#progress").empty();
         $("#firstStep").empty();
-        var pBar = document.getElementById('progress');
+        var pBar = document.getElementById('progress2');
         pBar.value = 50;
-        $("#progress").append("<p> Step 2 of 2 <p>");
+        $("#firstStep").append("<p></em> Step 2 of 2 </em><p>");
+
         $("#firstStep").append('<form action="donations.php" method="post">');
         $("#firstStep").append('<p> Your Full Name : </p> <input type="text" name="Name" >');
         $("#firstStep").append('<p> Credit Card Info: </p> <input type="text" id="card" name="CC" >');
         $("#firstStep").append('<p> CVV (Back of the Card) : </p> <input type="text" id="cvv" name="CVV">');
-        $("#firstStep").append('<p> Date: </p> <input type="text" name="Date">');
+        $("#firstStep").append('<p> Billing Address: </p> <input type="text" name="Address">');
         $("#firstStep").append('<br><br>');
         var string = '<input type="hidden" name="donationAmount" value="'+value+'">';
         $("#firstStep").append(string);
@@ -105,7 +111,6 @@
                             break;
                         case 3:
                             success = validateCVV(CVV, 3);
-
                     }
 
                     if(success){
@@ -126,17 +131,22 @@
 
                 if(type == 1 || type ==2){
                     //visa or mastercard
-                    if(!visamastercardCVV.test(CVV)){
+                    if(visamastercardCVV.test(CVV) != true){
                         alert("Your CVV is incorrect. Your card indicated Visa or MasterCard, which have 3 digit CVVs.");
                         return false; 
                     }
+
+                    return true;
                 }
 
                 else if(type == 3){
-                    if(!americanExpressCVV.test(CVV)){
+                    if(americanExpressCVV.test(CVV) != true)
+                    {
                         alert("Your CVV is incorrect. Your card indicated American Express, which have 4 digit CVVs.");
                         return false; 
                     }
+
+                    return true;
                 }
             }
 
