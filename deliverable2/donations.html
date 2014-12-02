@@ -93,30 +93,34 @@
             var creditCardInfo = document.getElementById('card').value;
             var CVV = document.getElementById('cvv').value;
             var type = validateCreditCardInfo(creditCardInfo);
+            var success; 
                 if(type != -1){
                     //Valid card, what type?
                     switch(type){
                         case 1:
-                            validateCVV(CVV, 1);
+                            success = validateCVV(CVV, 1);
                             break;
                         case 2:
-                            validateCVV(CVV, 2);
+                            success = validateCVV(CVV, 2);
                             break;
                         case 3:
-                            validateCVV(CVV, 3);
+                            success = validateCVV(CVV, 3);
 
                     }
 
+                    if(success){
                     pBar.value=100;
 
                     $("#firstStep").empty();
                     $("#firstStep").append('<h1> Thank you for your generous donation! </h1>');
+                    }
                 }
            
             
             function validateCVV(CVV, type){
                 //If visa or mastercard, 3 digits.
                 //If amex, 4 digits.   
+                //Returns success. 
                 var visamastercardCVV = /^3[0-9]/;
                 var americanExpressCVV = /^4[0-9]/;
 
@@ -124,12 +128,14 @@
                     //visa or mastercard
                     if(!visamastercardCVV.test(CVV)){
                         alert("Your CVV is incorrect. Your card indicated Visa or MasterCard, which have 3 digit CVVs.");
+                        return false; 
                     }
                 }
 
                 else if(type == 3){
                     if(!americanExpressCVV.test(CVV)){
                         alert("Your CVV is incorrect. Your card indicated American Express, which have 4 digit CVVs.");
+                        return false; 
                     }
                 }
             }
