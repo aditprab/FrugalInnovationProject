@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>FIL | Team</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300|Economica:400,700' rel='stylesheet' type='text/css'>
+	<style>
+		html, body
+		{
+			height:100%;
+			width:100%;
+			font-family: 'Lato', sans-serif;
+		}
+		h1
+		{
+			font-family: 'Economica', sans-serif;
+		}
+		#container
+		{
+			width:1500px;
+			height:1200px;
+			margin:0 auto;
+			text-align:center;
+		}
+		#container2{
+			width:1500px;
+			height:100%;
+			margin:0 auto;
+			text-align: center;
+		}
+
+		#container2 img{
+			width: 140px;
+			height: 140px;
+			padding:1px;
+		}
+
+		.trip, .trip img
+		{
+			width:300px;
+			height:200px;
+		}
+		.trip
+		{
+			position:relative;
+			display:inline-block;
+			margin:20px;
+	/*			border: 1px solid rgba(0,0,0,1.0);
+*/		}
+		.tripHover
+		{
+			position:absolute;
+			left:0;
+			bottom:0px;
+			width:225px;
+			height:225px;
+			background-color:rgba(0,0,0,.40);
+			color:rgb(255, 255, 255);
+			border-radius: 150px;
+			-webkit-border-radius: 110px;
+			-moz-border-radius: 150px;
+		}
+		.trip .text
+		{
+			padding-top:100px;
+			text-align: center;
+			width:225px;
+			color:rgb(255, 255, 255);
+		}
+
+	</style>
+	<script>
+		var imgs = ["http://www.cse.scu.edu/~sfigueira/blue_pic.jpg", "http://www.scu.edu/profiles/images/radha-basu.jpg", "http://www.scu.edu/engineering/bioengineering/images/Kim_2013_11_13.jpg", "http://cms.scu.edu/profiles/images/elizabeth-sweeny1.jpg", "http://www.scu.edu/engineering/ee/people/images/skrishnan-SM.jpg", "http://www.scu.edu/engineering/me/faculty/images/Hohyun-Lee_1.jpg", "http://www.ee.scu.edu/eefac/healy/tim3.jpg", "http://www.scu.edu/engineering/me/faculty/images/sepehrband.jpg", "http://www.scu.edu/engineering/ce/people/images/Nilsson_1.jpg", "http://www.scu.edu/engineering/ce/people/images/71904541.jpg", "http://www.engr.scu.edu/~emaurer/images/ed2.jpg", "http://www.scu.edu/engineering/bioengineering/images/Prashanth-Asuri-2_1.jpg", "http://www.cse.scu.edu/~rmikkili/images/Rani.jpg","http://www.scu.edu/engineering/news/images/Grover_1.JPG","http://www.scu.edu/engineering/frugal/about/images/geetha_arun.jpg", "http://www.scu.edu/engineering/frugal/about/images/pravin_jain.jpg", "http://www.scu.edu/engineering/ee/people/images/Zecevic-2012_1.jpg", "http://www.scu.edu/profiles/images/craig-stephens.jpg"];
+
+		var names = ["Dr. Silvia Figueria- Assosciate Professor of Computer Engineering & Head of Mobile Lab", "Radha Basu - Executive Director", "Dr. Unyoung Kim - Assistant Professor of Bioengineering", "Elizabeth Sweeny- Director", "Dr. Shoba Krishnan - Assosciate Professor, E.E.", "Dr. Hohyun Lee - Assistant Professor, M.Eng.", "Dr. Timothy Healy - Professor, E.E.", "Dr. Panthea Sepehrband - Assistant Professor, M.Eng", "Dr. Tonya Nilsson - Academic Lecturer(C.Eng.)",  "Dr. Mark Aschheim - Chair, Prof C. Eng", "Dr. Edwin Maurer -Assosciate Professor C.Eng", "Dr. Prashanth Asuri - Assistant Professor, Bioengineering", "Dr. Rani Mikkilineni - Lecturer, Computer Engineering", "Dr. Radhika Grover - Adjunct Lecturer E.E.", "Dr. Geetha Arun - Adjunct Lecturer ", "Pravin Jain - Social Entrepreneurship Advisor, Lecturer", "Dr. Aleksandar Zecevic - Professor, E.E.", "Dr. Craig Stephens - Professor of Biology, Director of Public Health"];
+
+		var sponsorImgs = ["https://lh3.googleusercontent.com/-RnnPsHV7TqE/T6AhD2JSmzI/AAAAAAAAAgw/CYSzAuZtAes/s180-no/G4_180x180.png", "http://susanpallister.files.wordpress.com/2012/11/engineering-for-change.jpg", "http://www.contrib.andrew.cmu.edu/~ewbcmu/img/copyright/ewb.png", "http://ranking.zeit.de/che2014/images/logos/tu_hamburg_harburg.gif", "https://lh4.googleusercontent.com/-CKNnBHvWTN0/AAAAAAAAAAI/AAAAAAAAIEo/4dwNHhV0usU/s120-c/photo.jpg", "http://cdn.nethope.org/assets/images/logo.png", "http://www.dfki.de/web/competence/vof/intranet_images/Project_402.png", "http://www.thetech.org/sites/default/files/logo_0.png", "https://s3.amazonaws.com/collegeset/app/public/system/logos/20/normal/5616fbd5f2d5ba6898efbad5bcf868d8.jpg?1361605924", "http://collaborate4africablog.files.wordpress.com/2014/02/westafricankonsonkonson.gif", "http://www.housing1000sv.org/wp-content/uploads/2011/12/CTA-logo.gif", "http://juccce.org/sites/default/files/NixonPeabody_Logo.jpg", "http://mpep.uspto.gov/RDMS/detail/manual/MPEP/current/graphics/seals.png", "https://www.asme.org/wwwasmeorg/media/ASMEMedia/ASME-logo-facebook.png", "http://media.glassdoor.com/sqll/267709/lab126-squarelogo.png", "http://upload.wikimedia.org/wikipedia/en/7/72/Crs-sq-200.gif", "http://www.tonymacx86.com/attachments/graphics/69472d1381330268-nvidia-updates-web-drivers-10-8-5-supplemental-update-313-01-03f02-nvidia-logo.jpg", "http://www.ieee.org/ucm/groups/public/@ieee/@web/@org/@members/documents/file/42129556.jpg", "https://www.microsoft.com/global/learning/en-us/PublishingImages/ms-logo-site-share.png", "http://jobs.euractiv.com/files/NS.jpg", "http://careerinsider.blogs.bucknell.edu/files/2014/03/accenture-logo.jpg", "http://sites.lafayette.edu/egrs251-fa11-greywater/files/2011/11/EPAlogo1-626x3821.jpg", "http://www.literacybridge.org/wp-content/uploads/2013/06/GSBI-Accelerator-logo2.jpg", "http://upload.wikimedia.org/wikipedia/commons/2/23/OPI_logo.jpg", "http://www.solarear.com.br/solar/res/solarpequeno.png", "http://ucpruk.org/ruk/wp-content/uploads/2012/01/Whirlwind.png", "http://languageconnections.com/wp3/wp-content/uploads/2013/09/MIT-media-lab.jpeg", "https://s3.amazonaws.com/ksr/photos/207/SDP-2.full.jpg", "http://benetech.org/wp-content/uploads/2013/07/benetech-labs-logo-icon.png", "http://upload.wikimedia.org/wikipedia/en/6/63/Xavier_College_Crest.png", "http://upload.wikimedia.org/wikipedia/en/6/66/IIT_Delhi_logo.gif", "http://upload.wikimedia.org/wikipedia/en/5/53/SELCO_logo.png", "http://www.asianweek.com/wp-content/uploads/2011/09/918471_300.jpeg", "http://www.scu.edu/business/inc/ni/images/Net_Impact_Logo_0.jpg", "https://d1qb2nb5cznatu.cloudfront.net/startups/i/121279-70c25e21a0855bcbedb68e87dd095177-medium_jpg.jpg?buster=1347314004", "http://www.inventure-technologies.nl/wp-content/themes/inventuretechnologies/images/cycle/inventure.png", "https://pbs.twimg.com/profile_images/378800000251000757/c34ea6f8d7bd7be3506515c5f462acf3_400x400.png", "http://bitcoinexaminer.org/wp-content/uploads/2014/07/slkdjflksjds.jpg", "http://cmis.imerit.net/images/anudip_logo1.jpg", "http://wecaresolar.com/wp/wp-content/uploads/2011/08/WECARESOLAR-logo-140.jpg"];
+		$(document).ready(function(){
+			// var count/*number of trips*/ = 4;
+		
+			var count = names.length;
+			for(var i = 0; i < count; i++){
+				var idStr = "trip" + i;
+				var classStr = "trip";
+				var appendStr = "<div id=\"" + idStr + "\" class=\"" + classStr +"\"</div>";
+				$("#container").append(appendStr);
+				var eventHandling = function(sel, img, name){
+					return $(sel).css({"cursor":"pointer",
+						"width":"225px",
+						"height":"225px",
+						"border-radius":"150px",
+						"-webkit-border-radius":"150px",
+						"-moz-border-radius":"150px",
+						"box-shadow":"0 0 8px rgba(0, 0, 0, .8)",
+						"-webkit-box-shadow":"0 0 8px rgba(0, 0, 0, .8)",
+						"-moz-box-shadow":"0 0 8px rgba(0, 0, 0, .8)",
+						"background":"url(" + img + ") no-repeat",
+						"background-size":"300px 225px"
+						})
+						.hover(function(){
+							var divHtml = "<div class=\"tripHover\"><div class=\"text\">" +  name + "</div></div>"
+							$(sel).append(divHtml);
+						}, function(){
+							$(sel).empty();
+						})
+						.click(function(){
+
+						});
+				};
+				$("#" + idStr).hover(eventHandling("#" + idStr, imgs[i], names[i])); //Call the eventHandler function with appropriate paramters. 
+			}
+
+			var sponsorCount = sponsorImgs.length;
+			for(var j=0; j < sponsorCount; j++){
+				var imgLink = '"'+ sponsorImgs[j] + '"';
+				var sponsorImgHtml = '<img id="theImg" src='+imgLink+ '/>'
+				$("#container2").append(sponsorImgHtml);
+			}
+		})
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="bannerText"> <h2> The Frugal Innovation Lab Team </h2> </div>
+	</div>
+	<div id="container2">
+		<hr> </hr>
+		<div id="bannerText2"> <h2> The Frugal Innovation Lab's Partners </h2> </div>
+	</div>
+</body>
+</html>

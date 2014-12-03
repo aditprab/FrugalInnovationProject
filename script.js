@@ -135,7 +135,12 @@ function buildQuestionAndPlaceInDocument(questionObject){
 var stop = function(){
 	time = 0;
 	$("#quizChoices").empty();
+	if(correct == 0){
+		$("#quizQuestion").empty().append('<h3>You got ' + correct + ' correct! Try again. You can do it!</h3>');
+	}
+	else{
 	$("#quizQuestion").empty().append('<h3>Congratulations! You got ' + correct + ' correct!</h3>');
+	}	
 	$("#quizQuestion").append('<h4 id="thanks" class="center"> Thanks for taking the quiz! </h4>');
 	//make the # correct and # incorrect larger
 }
