@@ -40,40 +40,72 @@
 			background-color:rgba(0,0,0,0.6);
 			color:white;
 		}
+		label
+		{
+		}
+		input[type="checkbox"]
+		{
+			display:inline;
+		}
+		input[type="text"].name
+		{
+			display:inline-block;
+			width:46.5%;
+		}
+		#surname
+		{
+			margin-left:5.25%;
+		}
+		label
+		{
+			font-size:14px;
+		}
+		.subtext
+		{
+			font-size:13px;
+			margin-right:5px;
+		}
+		#names .subtext
+		{
+			margin-right:48.75%;
+		}
+		textarea
+		{
+		    height:5em;
+		}
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("#proposalForm").submit(function(e){
+				var missing = false;
 				e.preventDefault();
-				if($("#projectName").val() === "" || $("#projectDescription").val() === "" || $("#members").val() === ""){
-					if($("#projectName").val() === ""){
-						$("#projectName").css("border-color", "rgb(255,0,0)");
+				$(".required").each(function(){
+					if($(this).val() === "")
+					{
+						$(this).css("border-color", "rgb(255,0,0");
+						missing = true;
 					}
-					if($("#projectDescription").val() === ""){
-						$("#projectDescription").css("border-color", "rgb(255,0,0)");
-					}
-					if($("#members").val() === ""){
-						$("#members").css("border-color", "rgb(255,0,0)");
-					}       
-					alert("Lacking one or more fields necessary for project proposal!");
+				});
+				if(missing)
+				{
+					alert("One or more fields necessary for proposal submission is missing!");
 					return;
 				}
 				$.post("submitProposal.php", $("#proposalForm").serialize(), function(data){
-					var regex = /^Error/;
-					var message = "Project proposal submitted!";
-					if(data.match(regex))
-						message = "Uh oh. Something went wrong. Please try again later.";
+					$("body").append(data);
+					// var regex = /^Error/;
+					// var message = "Project proposal submitted!";
+					// if(data.match(regex))
+					// 	message = "Uh oh. Something went wrong. Please try again later.";
 					$('<div id="message">' + message + '</div>').appendTo("body").hide().fadeIn(1500); 
 					$("#message").delay(1500).fadeOut(2000, function(){
 						$("#message").remove();
 					});
-					$("#projectName").val("");
-					$("#projectName").css("border-color", "rgba(215,215,215,1.0)");
-					$("#projectDescription").val("");
-					$("#projectDescription").css("border-color", "rgba(215,215,215,1.0)");
-					$("#members").val("");
-					$("#members").css("border-color", "rgba(215,215,215,1.0)");
+					$(".required").each(function(){
+						$(this).val("");
+						$(this).css("border-color", "rgba(215,215,215,1.0)");
+					});
 				});
 			});
 		});
@@ -84,19 +116,134 @@
 		<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
 		<div id="bannerText"><h2>Frugal Innovation Project Proposal</h2></div>
 	</div>
-	<div id="description">
-		<p>Submit your project proposals here</p>
-		<hr/>
-	</div>
 	<div id="proposal">
-		<h2>New Project Proposal</h2>
+		<h2>Project Proposal</h2>
 		<form id="proposalForm">
-			<h4>Project Name:</h4>
-			<input type="text" id="projectName" name="projectName"/>
-			<h4>Project Description:</h4>
-			<textarea id="projectDescription" name="projectDescription" maxlength="1000" form="proposalForm"></textarea>
-			<h4>Team Members:</h4>
-			<input type="text" id="members" name="members"/>
+			<div id="names">
+				<h4>Name</h4>
+				<span class="subtext">First</span><span class="subtext">Last</span><br/>
+				<input type="text" id="firstName" class="name required" name="firstName"/>
+				<input type="text" id="surname" class="name required" name="surname"/>
+			</div>
+			<h4>Email Address</h4>
+			<input type="text" class="required" id="email" name="email"/>
+			<h4>Organization's Website</h4>
+			<input type="text" class="required" id="website" name="website"/>
+			<h4>Your Role/Title</h4>
+			<input type="text" class="required" id="jobTitle" name="jobTitle"/>
+
+			<h4>Project Title</h4>
+			<input type="text" class="required" id="title" name="title"/>
+			<h4>Project Category</h4>
+			<span class="subtext">How would you classify your project?</span>
+			<select id="category" name="category" form="proposalForm">
+				<option value="renewableEnergy">Renewable Energy</option>
+				<option value="publicHealth">Public Health</option>
+				<option value="cleanWater">Clean Water</option>
+				<option value="agriculture">Agriculture</option>
+				<option value="livelihoodDev">Livelihood Development</option>
+				<option value="mobileTools">Mobile Tools</option>
+				<option value="other">Other</option>
+			</select>
+			<h4>Project Summary</h4>
+			<span class="subtext">In a paragraph, please briefly describe the project.</span><br/>
+			<textarea class="required" id="summary" name="summary" maxlength="1000" form="proposalForm"></textarea>
+			<h4>Project Partners</h4>
+			<span class="subtext">Are there any other organizations/schools working with you on this particular project? If yes, please list.</span><br/>
+			<input type="text" class="required" id="partners" name="partners"/>
+			<h4>Outcome of Project</h4>
+			<span class="subtext">What do you want the result of this project to be?</span>
+			<input type="text" class="required" id="outcome" name="outcome"/>
+
+			<h4>Timeline</h4>
+			<span class="subtext">Give us an idea of scope - how long do you think the project will take, and when do you need the outcome to be accomplished (end date)?</span><br/>
+			<input type="text" class="required" id="timeline" name="timeline"/>
+			<h4>Commitment of Your Team</h4>
+			<span class="subtext">How much time do you have to mentor your student team during the project? (Per Week)</span>
+			<select id="commitment" name="commitment" form="proposalForm">
+				<option value="30min">30 Minutes</option>
+				<option value="1hr">1 hour</option>
+				<option value="2hr">2 hours</option>
+				<option value="flexible">Flexible Based On Student Needs</option>
+			</select>
+			<h4>Immersion Hosting</h4>
+			<span class="subtext">Is there the possibility of your organization hosting students in the field?</span>
+			<select id="immersion" name="immersion" form="proposalForm">
+				<option value="yes">Yes</option>
+				<option value="no">No</option>
+			</select>
+			<h4>Disciplines Required</h4>
+			<span class="subtext">What qualifications do you need in a student team?</span><br/>
+				<div>
+					<label><input type="checkbox" name="bioe"/>Bioengineering</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="coen"/>Computer Engineering</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="civil"/>Civil Engineering</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="mech"/>Mechanical Engineering</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="elen"/>Electrical Engineering</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="business"/>Business</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="law"/>Law</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="publicHealth"/>Public Health</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="humanities"/>Humanities</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="sciences"/>Sciences</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="publicPolicy"/>Public Policy</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="otherDiscipline"/>Other</label>
+				</div>
+			<h4>Funding</h4>
+			<span class="subtext">What funds are available from you/your organization to support a project team to develop your solution?</span><br/>
+			<input type="text" class="required" id="funding" name="funding"/>
+			<h4>Intellectual Property</h4>
+			<span class="subtext">Are there any IP considerations going into the project that we need to be aware of? Also, what expectations does your organization have regarding IP developed with the Frugal Innovation Lab?</span><br/>
+			<input type="text" class="required" id="ip" name="ip"/>
+
+			<h4>How Did You Hear About Us?</h4>
+			<div>
+				<label><input type="checkbox" name="tech">Tech Awards / Tech Museum</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="gsbi/csts">GBSI / CSTS</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="fieldPartners">Field Partners</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="uniPartners">University Partners</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="corporatePartners">Corporate Partners</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="search">Search Engine</label>
+			</div>
+			<div>
+				<label><input type="checkbox" name="otherHear">Other</label>
+			</div>
+			<h4>Notes</h4>
+			<span class="subtext">Please provide any additional information that you'd like for us to know here.</span><br/>
+			<textarea id="notes" name="notes" maxlength="1000" form="proposalForm"></textarea>
+
+
 			<input type="submit" id="button" value="Submit Proposal"/>
 	</div>
 </body>

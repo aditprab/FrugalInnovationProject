@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Frugal Innovation | Projects</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+        $("circle").hover(function(){
+          $(this).attr('r', '6');
+          if($(".tooltip").length)
+            $(".tooltip").remove();
+          var projName, top;
+          var left = parseInt($(this).attr("cx")) + 20;
+          switch($(this).attr('id')){
+            case "fil":
+            top = $(this).attr("cy") - 30;
+            projName = "Frugal Innovation Lab";
+            break;
+            case "uganda":
+            top = $(this).attr("cy") - 28;
+            projName = "Energy Made In Uganda";
+            break;
+            case "nicaragua":
+            top = $(this).attr("cy") - 35;
+            projName = "Seed Bank Tracking in Nicaragua";
+            break;
+            case "kolkata":
+            top = $(this).attr("cy") - 30;
+            projName = "Anudip and iMerit";
+            break;
+            case "mexico":
+            top = $(this).attr("cy") - 18;
+            projName = "salaUno CATRA";
+            break;
+            case "southAfrica":
+            top = $(this).attr("cy") - 20;
+            projName = "IhaveIneed";
+            break;
+            case "nigeria":
+            top = $(this).attr("cy") - 25;
+            projName = "Project Omoverhi";
+            break;
+            case "kenya": 
+            top = $(this).attr("cy") - 53;
+            projName = "NetHope and SCU Mobile Health Interoperability Research";
+            break;
+            case "ghana":
+            top = $(this).attr("cy") - 35;
+            projName = "Ghana Footbridge Project";
+            break;
+          }
+          $("#svg").append("<div style=\"border: 1px solid black; position:absolute; left: "+ left +"px; top: "+ top +"px\" class=\"tooltip\">" + projName + "</div>");
+        }, function(){    /*handler for no longer hovering*/
+          $(this).attr('r', '5');
+          $(".tooltip").remove();
+        });
+	});
+	// 	var height = Math.floor($(window).height() / 3);
+	// 	var width = Math.floor(($(window).width() * .9) / 3);
+	// 	$(document).ready(function(){
+	// 	$(".tile img").each(function(){
+	// 		// $(this).css("height", height);
+	// 		// $(this).css("width", width);
+	// 	});
+	// });
+	// 	var rows = Math.floor($(window).height() / height /*height of image*/ );
+	// 	var columns = Math.floor($(window).width() / width /*width of an image*/ );
+	// 	var divsToMake = rows * columns;	/*# of images necessary to create a grid*/
+	// 	var appendStr;
+	// 	var imgs = ["http://www.scu.edu/engineering/frugal/gallery/2012/images/Energy-Made-In-Uganda.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Fundacion-Paraguaya_1.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Quikchill-Poster_1.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Labonachipposter.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Electrochemical-Detection-of-Arsenic-Using-a-Paper-Based-Microfluidic-Device-Poster_1.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Mobile-Forum-for-Education_3.jpg",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/salaUno-CATRA-poster-Print.gif",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/FACE.gif",
+	// 	"http://www.scu.edu/engineering/frugal/gallery/2012/images/Maana-Mobile.jpg"
+	// 	];
+	// 	$(document).ready(function(){
+	// 	for(var i = 0; i < divsToMake; i++)
+	// 	{
+	// 		var idStr = "img" + i;
+	// 		var classStr = "tile";
+	// 		var appendStr = "<div id=\"" + idStr + "\" class=\"" + classStr +"\">";
+	// 		$("#background").append(appendStr);
+	// 		$("#" + idStr).append("<img src=\"" + imgs[i % 10] + "\"/>");
+	// 	}
+	// })
+	</script>
+    <style>
+    	html
+		{
+			/*background-color:rgba(0,0,0,0.8);*/
+			font-family: 'Lato', sans-serif;
+		}
+		h1
+		{
+			margin-top:0;
+			font-family: 'Economica', sans-serif;
+		}
+		html, body
+		{
+			margin:0px;
+		}
+		html, #background
+		{
+			width:90%;
+			margin:0 auto;
+		}
+		#background
+		{
+			position:absolute;
+			left:0;
+			right:0;
+			top:0;
+			font-size: 0;		/*necessary for the spacing between divs/inline elements to be 0*/
+			z-index:-1;
+		}
+		.tile
+		{
+			display:inline;
+			margin:-10px -2px;
+		}
+		.tile img
+		{
+			height:236px;
+			width:405px;
+		}
+		#text
+		{
+			position:relative;
+			background-color:rgba(0,0,0,0.6);
+			color:white;
+			height:60%;
+			width:50%;
+			padding:5%;
+			margin:20% auto;
+		}
+      #container
+      {        
+        position:relative;
+        height:100vh;
+/*        background-color:white;
+*/      }
+      #map, #svg
+      {
+        position:absolute;
+        left:0;
+        top:60px;  
+        height:480px;
+      }
+      #map img
+      {
+        height:100%;
+      }
+      #svg svg
+      {
+        width:960px;
+        height:100%;    /*height inherited from parent element is 480px*/
+      }
+      circle
+      {
+        fill:rgb(207, 0, 15);
+      }
+      .tooltip
+      {
+        text-align:center;
+        color:white;
+        width: 100px;                  
+        padding: 5px; 
+        font:14px 'Lato', sans-serif;
+        background-color:rgba(0, 0, 0, .8);         
+        border: 0px;      
+        border-radius: 2px;           
+        pointer-events: none;  
+      }
+      .tooltip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 10px;
+        width: 100%;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25C0";
+        position: absolute;
+        text-align: center;
+        margin: -3px 0 0 0;
+        top: 50%;
+        left: -59px;
+      }
+      #container h2
+      {
+      	font-family:'Economica' sans-serif;
+      	margin: 100px 0;
+      }
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<div id="background">
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Energy-Made-In-Uganda.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Fundacion-Paraguaya_1.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Quikchill-Poster_1.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Labonachipposter.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Electrochemical-Detection-of-Arsenic-Using-a-Paper-Based-Microfluidic-Device-Poster_1.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Mobile-Forum-for-Education_3.jpg"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/salaUno-CATRA-poster-Print.gif"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/FACE.gif"/>
+			</div>
+			<div class="tile">
+				<img src="http://www.scu.edu/engineering/frugal/gallery/2012/images/Maana-Mobile.jpg"/>
+			</div>
+		</div>
+		<div id="text">
+			<h1>Frugal Innovation Projects</h1>
+			The Frugal Innovation Lab develops accessible, affordable, adaptable, and appropriate technologies, products and solutions to address human needs in emerging markets.
+			
+		</div>
+	</div>
+	<div id="container">
+		<h2>Global Frugal Innovation</h2>
+      <div id="map">
+        <img src="world.png">
+      </div>
+      <div id="svg">
+        <svg>
+          <circle id="fil" cx="128" cy="185" r="5">FIL</circle> 
+          <circle id="uganda" cx="546" cy="288" r="5"></circle>
+          <circle id="nicaragua" cx="226" cy="256" r="5">Nicaragua</circle>
+          <circle id="kolkata" cx="693" cy="230" r="5">Kolkata</circle>
+          <circle id="mexico" cx="180" cy="230" r="5">Mexico</circle>
+          <circle id="southAfrica" cx="525" cy="373" r="5">South Africa</circle>
+          <circle id="nigeria" cx="478" cy="268" r="5">Nigeria</circle>
+          <circle id="kenya" cx="560" cy="290" r="5">Kenya</circle>
+          <circle id="ghana" cx="454" cy="270" r="5">Ghana</circle>
+        </svg>
+      </div>
+  </div>
+  <div id="projectsList">
+  <h3>Renewable Energy</h3>
+<h5>Energy Made in Uganda</h5>
+<h5>Dynamic Poverty Heat Map</h5>
+<h5>QuikChill</h5>
+<h5>Emergency Power for Hospitals in Under-Developed Countries </h5>
+<h5>MUVE</h5>
+<h5>Design of Methane-to-Methanol Conversion Device</h5>
+<h5>Fuel-Cell Project</h5>
+<h5>Greenmission: An Off-Grid Energy System</h5>
+<h5>Manual Charging Phone Case</h5>
+<h5>Pb: Project Battery—A Portable In-Home Power System</h5>
+<h5>Shrouded Small Wind Turbine</h5>
+<h5>Smart Water Heater Controller</h5>
+<h5>Solar Powered Absorption Chiller</h5>
+<h3>Clean Water</h3>
+<h5>Lab on a Chip</h5>
+<h5>Electrochemical Detection of Arsenic</h5>
+<h5>Arsenic Detection Project: Electronics</h5>
+<h5>Design and Evaluation of a Home-Scale Arsenic Removal System</h5>
+<h5>Electrochemical Detection of Arsenic Using a Microfluidic Sensing Platform</h5>
+<h5>Life Water</h5>
+<h5>Paper-Based Water Analyzer</h5>
+<h5>Rainwater Catchment System at Walden West Outdoor Science School</h5>
+<h3>Mobile For Humanity</h3>
+<h5>Mobile Forum for Education</h5>
+<h5>salaUno CATRA</h5>
+<h5>FACE (Fair-Trade Aid Calculator for Everyone)</h5>
+<h5>Get Me There</h5>
+<h5>Seed Bank Tracking in Nicaragua</h5>
+<h5>NetHope and SCU Mobile Health Interoperability Research</h5>
+<h5>Mobile Platform for Vocal Pattern Analysis</h5>
+<h5>eRescue</h5>
+<h5>StreetConnect</h5>
+<h5>IhaveIneed</h5>
+<h5>Educating about Homelessness</h5>
+<h5>Energy Profile for Mobile Usage</h5>
+<h5>Hack for the Homeless Event</h5>
+<h5>Mobile Health Solution for Under-Served Young Women</h5>
+<h5>Mobile Security</h5>
+<h5>NVIDIA Cuda Lab</h5>
+<h5>StreetConnect II</h5>
+<h5>StreetPhone (LowPower Phones)</h5>
+<h5>Stress-Reliever for High-Risk Families</h5>
+<h5>TextTETEA - A mobile education service</h5>
+<h5>Tree Mapping</h5>
+<h5>Volunteer Connection</h5>
+<h3>Community Projects</h3>
+<h5>Community Projects</h5>
+<h5>Community Projects ENGR 110</h5>
+<h3>Livelihood Development</h3>
+<h5>App for Artisans</h5>
+<h5>Poverty Crusher</h5>
+<h5>Text to Learn</h5>
+<h3>Other Interdisciplinary</h3>
+<h5>AkaBot: 3D Printing Filament Extruder</h5>
+<h5>Beacon Pack</h5>
+<h5>Citizen Tree Mapping</h5>
+<h5>Engineers without Borders</h5>
+<h5>Luminant Display</h5>
+<h5>Tech Museum Innovation Workshops of 2014</h5>
+<h5>3D Printing Committee</h5>
+
+<h3>Public Health</h3>
+<h5>Fertile Days Ahead</h5>
+<h5>Hearing Aid</h5>
+<h5>Hearing Loss Detector (Mobile Audiometry Application)</h5>
+<h5>Mobile Cooler for the Last Mile Distribution of Vaccines in Developing Nations</h5>
+<h5>Wireless Impact Sensing Headband</h5>
+
+<h3>Sustainable Building</h3>
+<h5>Bamboo Connection Designs for Seismic Areas</h5>
+<h5>Cold Climate Solar Thermal Greenhouse</h5>
+<h5>Ductile Bamboo Structures</h5>
+<h5>Straw Bale Seismic Design Capacities 2</h5>
+
+  </div>
+</body>
+</html>	
