@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Frugal Innovation | Blog</title>
+    <title>Frugal Innovation | Donation</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <style>
@@ -10,6 +10,7 @@
         {
             font-family:Lato, sans-serif;
             height:100%;
+            background-image: url("https://ununsplash.imgix.net/photo-1415045384817-2f9cf7f2ed79?q=75&fm=jpg&s=a0d8ebf44a449c7855ca4128e914a7c5");
         }
 
         #overall
@@ -30,38 +31,35 @@
         #firstStep{
             border: 1px gray;
         }
-        
+
     </style>
 </head>
 <body>
     <div id="overall">
-        <h1>Donations</h1>
+        <div id="header"> <h1>Donations</h1> </div>
     <div id="progress">
         <progress id="progress2" value="0" max="100"></progress>
     </div>
-    <form>
     <div id="firstStep">
-    <p> <em> Step 1 of 2 </em> </p>
     <h3> Select a Tier </h3>
-    <input type="radio" id="13.30"> Option 1: $13.30 (Level 1): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
+    <input type="radio" name="firstField" id="13.30"> $13.30 <em>(Level 1</em>): Supports the wages and benefits of an undergraduate student to work for one hour on a FIL project!
     <br><br>
-    <input type="radio" id="17.65"> $17.65 (Level 2): Supports the wages and benefits of a graduate student to work for one hour on a FIL project!
+    <input type="radio" name="firstField" id="17.65"> $17.65 <em>(Level 2)</em>: Supports the wages and benefits of a graduate student to work for one hour on a FIL project!
     <br><br>
-    <input type="radio" id="39.95"> $39.95 (Level 3): Purchases one Raspberry Pi (or similar products) for the development of mobile applications, smart sensors, or other solutions for our field-based social enterprises.
+    <input type="radio" name="firstField" id="39.95"> $39.95 <em>(Level 3)</em>: Purchases one Raspberry Pi (or similar products) for the development of mobile applications, smart sensors, or other solutions for our field-based social enterprises.
     <br><br>
-    <input type="radio" id="78.60">$78.60 (Level 4): Covers the average cost of admittance to a FIL related conference for a faculty/staff member. 
+    <input type="radio" name="firstField" id="78.60">$78.60 <em>(Level 4)</em>: Covers the average cost of admittance to a FIL related conference for a faculty/staff member. 
     <br><br>
-    <input type="radio" id="500">$500 (Level 5): Provides a Senior Design team with enough money to buy materials for their prototype. 
+    <input type="radio" name="firstField" id="500">$500 <em>(Level 5)</em>: Provides a Senior Design team with enough money to buy materials for their prototype. 
     <br><br>
-    <input type="radio" id="898">$898 (Level 6): Accommodates one student’s air fare to South America to field test their prototypes with FIL university and enterprise partners. 
+    <input type="radio" name="firstField" id="898">$898 <em> (Level 6) </em>: Accommodates one student’s air fare to South America to field test their prototypes with FIL university and enterprise partners. 
     <br><br>
-    <input type="radio" id="1500"><em> $1,500 (Level 7): Makes you exceptionally awesome. </em> 
+    <input type="radio" name="firstField" id="1500"><em> $1,500 (Level 7): Makes you exceptionally awesome. </em> 
     <br><br>
     <input class="button" type="submit" value="Next">
-    </form>
-    <div>
     </div>
 </body>
+
 <script>
  $( ".button" ).click(function(e) {
         e.preventDefault();
@@ -79,84 +77,53 @@
         }
 
         $("#firstStep").empty();
+        $("#firstStep").append('<p> Got it, you want to donate $' + value + '. Now we just need some basic information to make the payment!');
         var pBar = document.getElementById('progress2');
         pBar.value = 50;
-        $("#firstStep").append("<p></em> Step 2 of 2 </em><p>");
 
-        $("#firstStep").append('<form action="donations.php" method="post">');
-        $("#firstStep").append('<p> Your Full Name : </p> <input type="text" name="Name" >');
-        $("#firstStep").append('<p> Credit Card Info: </p> <input type="text" id="card" name="CC" >');
-        $("#firstStep").append('<p> CVV (Back of the Card) : </p> <input type="text" id="cvv" name="CVV">');
-        $("#firstStep").append('<p> Billing Address: </p> <input type="text" name="Address">');
-        $("#firstStep").append('<br><br>');
+        var formString = "<form id=\"subForm\" action=\"donations.php\" method =\"post\">";
+        $("#firstStep").append(formString);
+        $("#subForm").append('<h3> Your Full Name : </h3> <input type="text" id="name" name="Name">');
+        $("#subForm").append('<h3> Credit Card Info: </h3> <input type="text" id="card" name="CC">');
+        $("#subForm").append('<h3> CVV (Back of the Card) : </h3> <input type="text" id="cvv" name="CVV">');
+        $("#subForm").append('<h3> Billing Address: </h3> <input type="text" id="address" name="Address">');
+        $("#subForm").append('<br><br>');
         var string = '<input type="hidden" name="donationAmount" value="'+value+'">';
-        $("#firstStep").append(string);
-        $("#firstStep").append('<input type="submit" id="finalSubmit" value="Donate!">');
-        $("#firstStep").append('</form>');
+        $("#subForm").append(string);
+        $("#subForm").append('<input type="submit" id="finalSubmit" value="Donate!">');
+        $("#firstStep").append("</form>");
 
 
-        $("#finalSubmit" ).click(function() {
+        $("#finalSubmit").click(function(e) {
+            e.preventDefault();
+
             var creditCardInfo = document.getElementById('card').value;
             var CVV = document.getElementById('cvv').value;
+            //Do client side empty validation (won't be stored in db if any aren't set, but good practice)
+            // if(creditCardInfo == null || CVV == null || document.getElementById('address').value == null || document.getElementById('name').value == null){
+            //     return;
+            // }
+
+            var success = false;
+
             var type = validateCreditCardInfo(creditCardInfo);
-            var success; 
-                if(type != -1){
-                    //Valid card, what type?
-                    switch(type){
-                        case 1:
-                            success = validateCVV(CVV, 1);
-                            break;
-                        case 2:
-                            success = validateCVV(CVV, 2);
-                            break;
-                        case 3:
-                            success = validateCVV(CVV, 3);
-                    }
-
-                    if(success){
-                    pBar.value=100;
-
-                    $("#firstStep").empty();
-                    $("#firstStep").append('<h1> Thank you for your generous donation! </h1>');
-                    }
+            if(type != -1){
+                success = validateCVV(CVV, type);
+                if(success){
+                    $("#subForm").submit();
                 }
-           
-            
-            function validateCVV(CVV, type){
-                //If visa or mastercard, 3 digits.
-                //If amex, 4 digits.   
-                //Returns success. 
-                var visamastercardCVV = /^3[0-9]/;
-                var americanExpressCVV = /^4[0-9]/;
-
-                if(type == 1 || type ==2){
-                    //visa or mastercard
-                    if(visamastercardCVV.test(CVV) != true){
-                        alert("Your CVV is incorrect. Your card indicated Visa or MasterCard, which have 3 digit CVVs.");
-                        return false; 
-                    }
-
-                    return true;
-                }
-
-                else if(type == 3){
-                    if(americanExpressCVV.test(CVV) != true)
-                    {
-                        alert("Your CVV is incorrect. Your card indicated American Express, which have 4 digit CVVs.");
-                        return false; 
-                    }
-
-                    return true;
+                else{
+                    return;
                 }
             }
-
+        
             function validateCreditCardInfo(creditCardInfo){
                 //Checks credit card info against established regexes. If any of them are true, we return:
                 //1 if visa. 2 if mastercard. 3 if american express. This is so we can validate the cvv based on the card, and not have to ask the user for what tpy oe card they are using.
                 //If none of the regexes match, we alert and let them type again. 
                 var visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
                 var masterCard = /^5[1-5][0-9]{14}$/; 
-                var americanExpress = /3[47][0-9]{13}/; //Uh, apparently this is right... but it's really lenient. 
+                var americanExpress = /^3[47][0-9]{13}$/; 
                 var visaTest = visa.test(creditCardInfo);
                 var masterCardTest = masterCard.test(creditCardInfo);
                 var americanExpressTest = americanExpress.test(creditCardInfo);
@@ -179,8 +146,38 @@
                              alert("Your credit card info is invalid. If you're using something other than Visa, MasterCard, or American Express, please switch to one of these cards. If not, retype your information!");
                             return -1;
                        }
-                }   
+                } 
+
+                function validateCVV(CVV, type){
+                //If visa or mastercard, 3 digits.
+                //If amex, 4 digits.   
+                //Returns success. 
+                var visamastercardCVV = /^[0-9]{3}$/;
+                var americanExpressCVV = /^[0-9]{4}$/;
+
+                if(type == 1 || type == 2){
+                    //visa or mastercard
+                    if(visamastercardCVV.test(CVV) != true){
+                        alert("Your CVV is incorrect. Your card indicated Visa or MasterCard, which have 3 digit CVVs.");
+                        return false; 
+                    }
+
+                    return true;
+                }
+
+                else if(type == 3){
+                    if(americanExpressCVV.test(CVV) != true)
+                    {
+                        alert("Your CVV is incorrect. Your card indicated American Express, which have 4 digit CVVs.");
+                        return false; 
+                    }
+
+                    return true;
+                }
+            }
         });      
 });
 </script>
 </html>
+
+
