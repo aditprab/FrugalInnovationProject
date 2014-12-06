@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+        // var water = 13;
+        // var mobile = 22;
+        // var community = 2;
+        // var livelihood = 3;
+        // var other = 7;
+        // var health = 5;
+        // var sustainable = 4;
+
+        // var svgHeight = 500;
+        // var svgWidth = 800;
+        // var x = 0;
+        // var xincr = 50;
+        // var htmlString = "<svg id=\"categoriesGraph\" width=\"" + svgWidth + "px\" height=\"" + svgHeight + "px\">";
+        // alert(htmlString);
+        // var y = water * 10;
+        // var rectString = "<rect class=\"bar\"";
+        // var waterString = rectString + "x = \"" + x + "\" y=\"" + (svgHeight - y) + "\" width=\"50\" height=\"" + y + "\">"; 
+        // y = mobile * 
+        // alert(waterString);
+        // var categoryCount = {};
+        // categoryCount["Renewable Energy"] = $("#Renewable\ Energy h3").length;
+        // categoryCount["Clean Water"] = 8;
+        // categoryCount["Mobile For Humanity"] = 22;
+        // categoryCount["Community Projects"] = 2;
+        // categoryCount["Livelihood Development"] = 3;
+        // categoryCount["Other Interdisciplinary"] = 7;
+        // categoryCount["Public Health"] = 5;
+        // categoryCount["Sustainable Building"] = 4;
+
+        // var width = 50;
+        // var height;
+        // var svgHeight = 350;
+        // var svgWidth = 1000;
+        // var x = 0;
+        // var y;
+        // var xIncr = width + 60; 
+        // var htmlString = "<svg id=\"categoriesGraph\" width=\"" + svgWidth + "px\" height=\"" + svgHeight + "px\">";
+        // var svgString;
+        // var textString;
+        // var textY = svgHeight - 50;
+        // var keys = Object.keys(categoryCount).sort();
+        // for(var i = 0; i < keys.length; i++)
+        // {
+        //     height = categoryCount[keys[i]] * 10;
+        //     // alert(keys[i]);
+        //     // alert(height);
+        //     svgString = "<rect class=\"bar\" x = \"" + x + "\" y=\"" + (textY - height - 50) + "\" width=\"" + width + "\" height=\"" + height + "\"/>"; 
+        //     if(key = keys[i].replace(" ", "<tspan x=\"" + x + "\" y = \"" + (textY + 20) + "\">"))
+        //     {
+        //         alert(key);
+        //         alert("In");
+        //     }
+        //     textString = "<text class=\"catLabel\" x = \"" + x + "\" y = \"" + textY +"\">" + key + "</text>";
+        //     alert(textString);
+        //     htmlString += svgString;
+        //     htmlString += textString;
+        // 	x += xIncr;
+        // }
+        // alert(htmlString);
+        //         $(document).ready(function(){
+        //     $("#graph").append(htmlString);
+        //     // $("#categoriesGraph").append(waterString);
+
+
+                            var width = 50;
+                var height;
+                var svgHeight = 350;
+                var svgWidth = 1000;
+                var x = 0;
+                var y;
+                var xIncr = width + 60; 
+                var htmlString = "<svg id=\"categoriesGraph\" width=\"" + svgWidth + "px\" height=\"" + svgHeight + "px\">";
+                var svgString;
+                var textString;
+                var textY = svgHeight - 50;
+
+                var drawGraph = function(categoryCount){
+                    var keys = Object.keys(categoryCount).sort();
+                    for(var i = 0; i < keys.length; i++)
+                    {
+                        height = categoryCount[keys[i]] * 10;
+                        svgString = "<rect class=\"bar\" x = \"" + x + "\" y=\"" + (textY - height - 50) + "\" width=\"" + width + "\" height=\"" + height + "\"/>"; 
+                        if(key = keys[i].replace(" ", "<tspan x=\"" + x + "\" y = \"" + (textY + 20) + "\">"))
+                        {
+                            key += "</tspan>";
+                        }
+                        textString = "<text class=\"catLabel\" x = \"" + x + "\" y = \"" + textY +"\">" + key + "</text>";
+                        htmlString += svgString;
+                        htmlString += textString;
+                        x += xIncr;
+                    }
+                    $("#graph").append(htmlString);
+                }
+
+                $(document).ready(function(){
+        var categoryCount = {};
+        categoryCount["Renewable Energy"] = 13;
+        categoryCount["Clean Water"] = 8;
+        categoryCount["Mobile For Humanity"] = 22;
+        categoryCount["Community Projects"] = 2;
+        categoryCount["Livelihood Development"] = 3;
+        categoryCount["Other Interdisciplinary"] = 7;
+        categoryCount["Public Health"] = 5;
+        categoryCount["Sustainable Building"] = 4;
+
+                    drawGraph(categoryCount);
+        });
+	</script>
+</head>
+<body>
+	<div id="graph">
+	</div>
+	<!-- <svg id="categoriesGraph" width="800px" height="500px">
+		<rect x="10" y="420" width="50" height="80"/>
+		<rect x="80" y="380" width="50" height="120"/>
+		<!-- y = height - svgHeight;
+		xIncr = width + 20;
+		x += xIncr;
+	</svg> -->
+</body>
+</html>

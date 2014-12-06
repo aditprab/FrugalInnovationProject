@@ -14,17 +14,20 @@ $teamMembers = $_POST['members'];
 $con = mysql_connect("dbserver.engr.scu.edu","nlam","00000965060");
 if (!$con)
 {
-        $proposalNumber = $resultArray['COUNT(*)'];
+        die('Could not connect: ' . mysql_error());
 }
-$proposalNumber++;
 
-$sql = "INSERT INTO $tableName VALUES ('$proposalNumber', '$projectName','$projectDescription','$teamMembers')";
+mysql_select_db("sdb_nlam", $con);
 
 $result = mysql_query("SELECT COUNT(*) FROM $tableName");
 
 while($resultArray = mysql_fetch_array($result))
 {
+<<<<<<< HEAD
+        $proposalNumber = $resultArray['COUNT(*)'];
+=======
     $proposalNumber = $resultArray['COUNT(*)'];
+>>>>>>> d44bf80ef597911d542f86d3f2d7ebe1b614ecfd
 }
 $proposalNumber++;
 

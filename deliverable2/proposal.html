@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Frugal Innovation | Project Proposal</title>
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
-	<link href='style.css' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'/>
+	<link href='style.css' rel='stylesheet' type='text/css'/>
+	<link href='nav.css' rel='stylesheet' type='text/css'/>
 	<style>
 		#banner, #description
 		{
@@ -20,7 +21,7 @@
 			margin:0 auto;
 			padding-bottom:8%;
 		}
-		h4
+		#proposalForm h4
 		{
 			margin-bottom:0;
 		}
@@ -31,7 +32,7 @@
 		#message
 		{
 			position:absolute;
-			bottom:-15%;
+			bottom:-135%;
 			left:30%;
 			width:40%;
 			padding-top:15%;
@@ -42,6 +43,7 @@
 		}
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="nav.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("#proposalForm").submit(function(e){
@@ -80,6 +82,8 @@
 	</script>
 </head>
 <body>
+	<div id="navBar">
+	</div>
 	<div id="banner">
 		<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
 		<div id="bannerText"><h2>Frugal Innovation Project Proposal</h2></div>

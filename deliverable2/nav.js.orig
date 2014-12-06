@@ -16,4 +16,8 @@ for(var i = 0; i < keys.length; i++)
 }
 $(document).ready(function(){
     $("#navBar").append(appendHTML);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> d44bf80ef597911d542f86d3f2d7ebe1b614ecfd
