@@ -73,7 +73,6 @@ if(empty($_POST['Name']) || empty($_POST['CC']) || empty($_POST['CVV']) || empty
 
 	        #overall
 	        {
-	            position:relative;
 	            top:5%;
 	            width:70%;
 	            height:20%;
