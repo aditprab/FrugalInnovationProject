@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Frugal Innovation | Project Proposal</title>
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
-	<link href='style.css' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'/>
+	<link href='style.css' rel='stylesheet' type='text/css'/>
+	<link href='nav.css' rel='stylesheet' type='text/css'/>
 	<style>
 		#banner, #description
 		{
@@ -20,7 +21,7 @@
 			margin:0 auto;
 			padding-bottom:8%;
 		}
-		h4
+		#proposalForm h4
 		{
 			margin-bottom:0;
 		}
@@ -31,7 +32,7 @@
 		#message
 		{
 			position:absolute;
-			bottom:-15%;
+			bottom:-135%;
 			left:30%;
 			width:40%;
 			padding-top:15%;
@@ -39,9 +40,6 @@
 			text-align:center;
 			background-color:rgba(0,0,0,0.6);
 			color:white;
-		}
-		label
-		{
 		}
 		input[type="checkbox"]
 		{
@@ -62,7 +60,8 @@
 		}
 		.subtext
 		{
-			font-size:13px;
+			font-size:14px;
+			color:rgba(100,100,100,1.0);
 			margin-right:5px;
 		}
 		#names .subtext
@@ -75,6 +74,7 @@
 		}
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="nav.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("#proposalForm").submit(function(e){
@@ -92,12 +92,14 @@
 					alert("One or more fields necessary for proposal submission is missing!");
 					return;
 				}
-				$.post("submitProposal.php", $("#proposalForm").serialize(), function(data){
-					$("body").append(data);
-					// var regex = /^Error/;
-					// var message = "Project proposal submitted!";
-					// if(data.match(regex))
-					// 	message = "Uh oh. Something went wrong. Please try again later.";
+				$.post("proposal.php", $("#proposalForm").serialize(), function(data){
+					 var regex = /^Error/;
+					 var message = "Project proposal submitted!";
+					 if(data.match(regex))
+					 {
+					 	message = "Uh oh. Something went wrong. Please try again later.";
+					 	return;
+					 }
 					$('<div id="message">' + message + '</div>').appendTo("body").hide().fadeIn(1500); 
 					$("#message").delay(1500).fadeOut(2000, function(){
 						$("#message").remove();
@@ -106,12 +108,18 @@
 						$(this).val("");
 						$(this).css("border-color", "rgba(215,215,215,1.0)");
 					});
+					$("#notes").val("");
+					$("input[type=checkbox]").each(function(){
+						$(this).attr("checked", false);
+					});
 				});
 			});
 		});
 	</script>
 </head>
 <body>
+	<div id="navBar">
+	</div>
 	<div id="banner">
 		<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
 		<div id="bannerText"><h2>Frugal Innovation Project Proposal</h2></div>
@@ -174,40 +182,40 @@
 			</select>
 			<h4>Disciplines Required</h4>
 			<span class="subtext">What qualifications do you need in a student team?</span><br/>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="bioe"/>Bioengineering</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="coen"/>Computer Engineering</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="civil"/>Civil Engineering</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="mech"/>Mechanical Engineering</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="elen"/>Electrical Engineering</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="business"/>Business</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="law"/>Law</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="publicHealth"/>Public Health</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="humanities"/>Humanities</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="sciences"/>Sciences</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="publicPolicy"/>Public Policy</label>
 				</div>
-				<div>
+				<div class="checkbox">
 					<label><input type="checkbox" name="otherDiscipline"/>Other</label>
 				</div>
 			<h4>Funding</h4>
@@ -218,25 +226,25 @@
 			<input type="text" class="required" id="ip" name="ip"/>
 
 			<h4>How Did You Hear About Us?</h4>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="tech">Tech Awards / Tech Museum</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="gsbi/csts">GBSI / CSTS</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="fieldPartners">Field Partners</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="uniPartners">University Partners</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="corporatePartners">Corporate Partners</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="search">Search Engine</label>
 			</div>
-			<div>
+			<div class="checkbox">
 				<label><input type="checkbox" name="otherHear">Other</label>
 			</div>
 			<h4>Notes</h4>

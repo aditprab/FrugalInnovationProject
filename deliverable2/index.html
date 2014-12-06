@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Frugal Innovation Lab</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='nav.css' rel='stylesheet' type='text/css'/>
 	<style>
         html, body
         {
@@ -19,28 +20,28 @@
             height:80%;
             text-align:center;
         }
-    #menuImg
-    {
-        position:absolute;
-        top:2%;
-        left:2%;
-        width:2%;
-        cursor:pointer;
-    }
-    #menu
-    {
-        position:absolute;
-        top:6%;
-        left:2%;
-        width:15%;
-        height:50%;
-        background-color:rgba(0,0,0,0.8);
-        color:rgba(255,255,255,1.0);
-        padding:1% 2%;
-        text-align:left;
-    }
-    #menu:before
-    {
+        #menuImg
+        {
+            position:absolute;
+            top:2%;
+            left:2%;
+            width:2%;
+            cursor:pointer;
+        }
+        #menu
+        {
+            position:absolute;
+            top:6%;
+            left:2%;
+            width:15%;
+            height:50%;
+            background-color:rgba(0,0,0,0.8);
+            color:rgba(255,255,255,1.0);
+            padding:1% 2%;
+            text-align:left;
+        }
+        #menu:before
+        {
             box-sizing: border-box;
             display: inline;
             font-size: 10px;
@@ -53,137 +54,167 @@
             margin: -2.8% 0 0 -46%;
             top: 0;
             left: 2%;
-    }
-#banner
-{
-    height:50%;     /*necessary because position absolute and else content underneath will move up*/
-    margin:25% auto 0 auto;
-    position:relative;
-}
-#banner h2
-{
-    font-family:Lato, sans-serif;
-    font-weight:100;
-}
-#bannerImg
-{
-    width:100%;
-    position:absolute;
-    left:0;
-    top:0;
-}
-#bannerText
-{
-    position:relative;
-    top:20%;
-    background-color:rgba(0,0,0,0.45);
-    color:white;
-    width:70%;
-    padding:5% 0;
-    margin:0 auto;
-    text-align:center;
-}
-    #mission, #methodology
-    {
-        display:inline-block;
-        height:100%;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    #mission
-    {
-        background-image: url("http://sigmathea.files.wordpress.com/2014/04/sdim5392_hdr.jpg");
-    }
-    #methodology
-    {
-         background-image: url("http://www.scu.edu/engineering/frugal/instruction/images/Approach-Banner.jpg");
-    }
-    #missionText, #methodText
-    {
-        height:55%;
-        width:75%;
-        margin:8% auto;
-        padding:4% 5%;
-        background-color:rgba(0,0,0,0.7);
-        color:white;
-    }
-    a
-    {
-        text-decoration:none;
-        color:#6699FF;
-    }
-    #menu a
-    {
-        color:rgb(255,255,255);
-        font-weight:100;
-    }
-    h1, h2, h3, h4, h5
-    {
-        font-family:Economica, serif;
-    }
-    #main h3
-    {
-        display:inline-block;
-    }
-#campus
-{
-height:100%;
-}
-#map
-{
-height:100%;
-width:100%;
-}
+        }
+        #banner
+        {
+            height:35%;     /*necessary because position absolute and else content underneath will move up*/
+            margin:25% auto 0 auto;
+            position:relative;
+        }
+        #banner h2
+        {
+            font-family:Lato, sans-serif;
+            font-weight:300;
+        }
+        #bannerImg
+        {
+            width:100%;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        #mission, #methodology
+        {
+            display:inline-block;
+            height:100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        #mission
+        {
+            background-image: url("http://sigmathea.files.wordpress.com/2014/04/sdim5392_hdr.jpg");
+        }
+        #methodology
+        {
+             background-image: url("http://www.scu.edu/engineering/frugal/instruction/images/Approach-Banner.jpg");
+        }
+        #missionText, #methodText
+        {
+            height:55%;
+            width:75%;
+            margin:8% auto;
+            padding:4% 5%;
+            background-color:rgba(0,0,0,0.7);
+            color:white;
+        }
+        a
+        {
+            text-decoration:none;
+            color:rgb(150, 40, 27);
+        }
+        #menu a
+        {
+            color:rgb(255,255,255);
+            font-weight:300;
+        }
+        #main h3
+        {
+            display:inline-block;
+        }
+        #campus
+        {
+            height:100%;
+        }
+        #map
+        {
+            margin:0 auto;
+            height:70%;
+            width:50%;
+            padding:8% 0;
+        }
+        #footer
+        {
+            color:rgb(100,100,100);
+            width:68%;
+            margin:0 auto;
+            padding-bottom:5%;
+        }
+        hr
+        {
+            color:rgba(0,0,0,0.6);
+            border:none;
+            height:1px;
+            background-color:rgba(0,0,0,0.7);
+        }
+        /*Begin CSS for menu*/
+        .menuItem
+        {
 
+        }
+        .menuItem:hover
+        {
+            background-color:rgb(255,255,255);
+        }
+        .menuItem:hover a
+        {
+            color:rgba(0,0,0,0.8);
+        }
 	</style>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="nav.js"></script>
 	<script>
-        $(document).ready(function(){
-              var menu = false;
-            $("#menuImg").click(function(){
-                                if(!menu){
-                                    $("#main").append('<div id="menu"><h2>Menu</h2>' +
-                                        '<p><a href="">Projects</p><p><a href="">Team</p>' +
-                                        '<p><a href="http://students.engr.scu.edu/~aprabhak/FrugalInnovationProject/people/team.html">Donations</p>' +
-                                        '<p><a href="">Quiz</p>' +
-                                        '<p><a href="">Forum</p>' +
-                                        '<p><a href="">Project Proposal</p>' +
-                                        '<p><a href="">Submit Résumé</p>');
-//                                    $("html").click(function(){
-//                                                if(menu)
-////                                                $("#menu").remove();
-//                                                });
-                                }
-                                else
-                                {
-                                    $("#menu").remove();
-                                    $("html").off("click");
-                                }
-                                menu = !menu;
-                                });
+        // $(document).ready(function(){
+        //       var menu = false;
+        //       var links = {
+        //         Projects:"http://students.engr.scu.edu/~nlam/deliverable2/project.html",
+        //         Team:"http://students.engr.scu.edu/~aprabhak/FrugalInnovationProject/people/team.html",
+        //         Donations:"http://students.engr.scu.edu/~aprabhak/FrugalInnovationProject/deliverable2/donations.html",
+        //         Quiz:"http://students.engr.scu.edu/~nlam/deliverable2/quiz.html",
+        //         Blog:"http://students.engr.scu.edu/~nlam/deliverable2/blog.html",
+        //         "Project Proposal":"http://students.engr.scu.edu/~nlam/deliverable2/proposal.html"
+        //       };
+        //       alert(links["Project Proposal"]);
+        //       var keys = Object.keys(links);
+        //       var appendHTML = '<div id="menu"><h2>Menu</h2>';
+        //     for(var i = 0; i < keys.length; i++)
+        //     {
+        //         appendHTML += '<div class="menuItem"><a href="' + links[keys[i]] + '">' + keys[i] + '</a></div>';
+        //     }
+        //     alert(appendHTML);
+        //     $("#menuImg").click(function(){
+        //                         if(!menu){
+        //                             $("#main").append(appendHTML);
+        //                            $("html").mouseup(function(e){
+        //                                if(menu && !$("#menu").is(e.target) && $("#menu").has(e.target).length === 0)
+        //                                {
+        //                                     alert("In here!");
+        //                                     $("#menu").remove();
+        //                                     menu = false;
+        //                                }
+        //                            });
+        //                         }
+        //                         else
+        //                         {
+        //                             $("#menu").remove();
+        //                             $("html").off("mouseup");
+        //                         }
+        //                         menu = !menu;
+        //                         });
                           
-                          });
+        //                   });
 	</script>
 </head>
 <body>
+    <div id="navBar">
+    </div>
 	<div id="main">
-        <img src="menu-icon.png" id="menuImg"></img>
+        <!-- <img src="menu-icon.png" id="menuImg"></img> -->
+
 		<div id="banner">
-			<img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
-			<div id="bannerText"><h2>Frugal Innovation Lab</h2></div>
+			<img src="logo.jpg" alt="FILLogo" id="bannerImg">
         </div>
-        <a href="#mission">Mission</a>&nbsp;|&nbsp;<a href="#methodlogy">Methodology</a>&nbsp;|&nbsp;<a href="#map">Location</a>
+        <a href="#mission">Mission</a>&nbsp;|&nbsp;<a href="#methodology">Methodology</a>&nbsp;|&nbsp;<a href="#map">Location</a>
 	</div>
-    <a name="mission">
+    <a name="mission"/>
 	<div id="mission">
         <div id="missionText">
             <h1>Mission</h1>
             <p>Sponsored by the School of Engineering, the mission of the Frugal Innovation Lab (FIL) is to develop accessible, affordable, adaptable and appropriate technologies, products and solutions for emerging markets.  FIL fosters collaboration between students, social entrepreneurs, corporate partners and faculty to incubate and scale development projects in areas such as clean energy, global health, mobile technologies, and sustainable livelihood development.</p>
         </div>
 	</div>
-    <a name="methodology">
+    <a name="methodology"/>
     <div id="methodology">
         <div id="methodText">
             <h1>Methodology</h1>
@@ -192,9 +223,13 @@ width:100%;
             <p>Courses offered by FIL are informed by a network of global social entrepreneurs that offer their field-based insight to guide students in their studies and provide real world challenges for project teams to address. Innovative technologies and solutions that are developed by the students as a result of projects from FIL courses are then implemented in the field by the students themselves. Project teams then venture on an immersion trip to deliver and implement the solutions that they have engineered, where they have the opportunity to redesign their prototypes after they have been exposed to the cultural, societal, and resource implications of their particular project challenge.</p>
         </div>
     </div>
-    <a name="map">
+    <a name="map"/>
 	<div id="campus">
-<iframe id="map" src="http://www.scu.edu/map/214/index.cfm" seamless></iframe>
+        <iframe id="map" src="http://www.scu.edu/map/214/index.cfm" seamless></iframe>
 	</div>
+    <div id="footer">
+        <hr/>
+        <h5>Created by <a href="https://github.com/aditprab">Adithya Prabhakaran</a> &amp; <a href="https://github.com/ntlam">Nathan Lam</a> aka rollpt2 for Santa Clara University's Frugal Innovation Lab</h5>
+    </div>
 </body>
 </html>

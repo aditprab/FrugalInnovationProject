@@ -1,0 +1,468 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="project.xsl"?> 
+<!DOCTYPE projects[
+	<!ELEMENT categories (category)>
+	<!ELEMENT category (project)>
+	<!ELEMENT project (description, student, advisor, partner)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT student (#PCDATA)>
+	<!ELEMENT advisor (#PCDATA)>
+	<!ELEMENT partner (#PCDATA)>
+	<!ATTLIST category name CDATA #REQUIRED>
+	<!ATTLIST project name CDATA #REQUIRED>
+]>
+<categories>
+	<category name="Renewable Energy">
+		<project name="Energy Made In Uganda">
+			<student>Jaqueline Barbosa</student>
+			<student>Kirsten Petersen</student>
+			<advisor>Shoba Krishnan</advisor>
+		</project>
+		<project name="Dynamic Poverty Heat Map">
+			<student>Jonathan Ahumada</student>
+			<student>Kurt Jurgens</student>
+			<student>Jasmine Farias</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="QuikChill">
+			<student>Franz Louie Chua</student>
+			<student>Brandon Ohara</student>
+			<student>Bernadette Tong</student>
+			<advisor>Hohyun Lee</advisor>
+		</project>
+		<project name="Emergency Power for Hospitals in Under-Developed Countries">
+			<student>Erik McAdams</student>
+			<student>Hugo Mailloux-Beauchemin</student>
+			<student>Jonathan Chimento</student>
+			<advisor>Tonya Nilsson</advisor>
+		</project>
+		<project name="MUVE">
+			<description>A web tool to digitize books for use in rural areas. Computer engineering students designed this tool to be implemented for a social enterprise called 'iMerit' that generates new economy livelihoods in India (CEO of iMerit is Radha Basu, Director of the Frugal Innovation Lab). Considers the fact that feature phones are common, schools have outdated books, and women want and need jobs. iMerit works with employees and publishers, who then utilize MUVE to digitize relevant content. With the aim of providing a better education and enabling more jobs to be generated, MUVE is currently being deployed by a team of SCU students in rural centers in India.</description>
+			<student>Elysia Chu</student>
+			<student>Victoria Hall</student>
+			<student>Maya Hough</student>
+			<student>Urvashi Reddy</student>
+			<advisor>Silvia Figueira</advisor>
+			<advisor>Radha R. Basu</advisor>
+		</project>
+		<project name="Design of Methane-to-Methanol Conversion Device">
+			<student>Pankti Doshi</student>
+			<student>Jessica Garcia</student>
+			<advisor>Jim Bowlby (Single Cell Technology)</advisor>
+			<advisor>Prashanth Asuri</advisor>
+			<partner>Patrick Hoggard and Olaotan Elenitoba-Johnson from Chemistry Department</partner>
+			<partner>Santa Clara University's School of Engineering</partner>
+			<partner>Santa Clara Entrepreneurship Organization</partner>
+			<partner>Frugal Innovation Lab</partner>
+		</project>
+		<project name="Fuel-Cell Project">
+			<student>Michael Sizemore</student>
+			<student>Sandeep Lele</student>
+			<advisor>Drazen Fabris</advisor>
+			<partner>CSTS</partner>
+			<partner>Environmental Protection Agency</partner>
+		</project>
+		<project name="Greenmission: An Off-Grid Energy System">
+			<student>Tyler Marting</student>
+			<student>Andrew Izawa</student>
+			<student>John Nolan</student>
+			<student>Richard Dobbins</student>
+			<advisor>Shoba Krishnan</advisor>
+			<partner>SCU School of Engineering</partner>
+			<partner>SCU Abby Sobrato Fund</partner>
+			<partner>IEEE Silicon Valley Chapter</partner>
+			<partner>Walden West Outdoor Science School</partner>
+		</project>
+		<project name="Manual Charging Phone Case">
+			<student>Dante Eley</student>
+			<student>Nicholas Mason</student>
+			<student>Laurence Pringle</student>
+			<advisor>Calvin Tszeng</advisor>
+		</project>
+		<project name="Pb: Project Battery—A Portable In-Home Power System">
+			<student>Devin Blaney</student>
+			<student>Brian Fahey</student>
+			<student>Amanda Tran</student>
+			<advisor>Timothy Healy</advisor>
+			<partner>Frugal Innovation Lab</partner>
+		</project>
+		<project name="Shrouded Small Wind Turbine">
+			<student>Kristen Flannery</student>
+			<student>Michael Holligan</student>
+			<student>Joseph Soares</student>
+			<advisor>Nik Djordjevic</advisor>
+			<advisor>Drazen Fabris</advisor>
+			<partner>Roelandts (CSTS)</partner>
+			<partner>ASME SCVS</partner>
+		</project>
+		<project name="Smart Water Heater Controller">
+			<student>Rebecca Barney</student>
+			<student>Rachel Donohoe</student>
+			<student>Xavier Moya</student>
+			<student>Kerbasi Ugarte</student>
+			<student>Russell Williams</student>
+			<advisor>Hohyun Lee</advisor>
+			<partner>School of Engineering</partner>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+		<project name="Solar Powered Absorption Chiller">
+			<student>Craig Carlson</student>
+			<student>Mark Coulter</student>
+			<student>Claire Kunkle</student>
+			<student>Patrick Watson</student>
+			<advisor>Hohyun Lee</advisor>
+			<partner>Roelandts (CSTS)</partner>
+			<partner>California Energy Commission</partner>
+		</project>
+	</category>
+	<category name="Clean Water">
+		<project name="Lab on a Chip">
+			<student>Sonny Gandhi</student>
+			<student>Zuhayr Elahi</student>
+			<student>John Seubert</student>
+			<student>Ben Demaree</student>
+			<student>Jessica VanderGiessen</student>
+			<advisor>Shoba Krishnan</advisor>
+			<advisor>Silvia Figueira</advisor>
+			<advisor>Unyoung (Ashley) Kim</advisor>
+		</project>
+		<project name="Electrochemical Detection of Arsenic">
+			<student>Ben Demaree</student>
+			<student>Jessica VanderGiessen</student>
+			<advisor>Unyoung (Ashley) Kim,</advisor>
+		</project>
+		<project name="Arsenic Detection Project: Electronics">
+			<student>John Barth</student>
+			<student>Anthony Clemtson</student>
+			<advisor>Silvia Figueira</advisor>
+			<advisor>Shoba Krishnan</advisor>
+		</project>
+		<project name="Design and Evaluation of a Home-Scale Arsenic Removal System">
+			<student>Megan Alferness</student>
+			<student>Alex Casares</student>
+			<advisor>Steven Chiesa</advisor>
+		</project>
+		Electrochemical Detection of Arsenic Using a Microfluidic Sensing Platform
+		<project name="Electrochemical Detection of Arsenic Using a Microfluidic Sensing Platform">
+			<student>Ben Demaree</student>
+			<student>Allie Sibole</student>
+			<student>Jessica VanderGiessen</student>
+			<advisor>Unyoung (Ashley) Kim</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+		<project name="Life Water">
+			<student>Colin Boyle</student>
+			<student>Scott Hanson</student>
+			<advisor>Edwin Maurer</advisor>
+		</project>
+		<project name="Paper-Based Water Analyzer">
+			<student>Jesus Gonzalez</student>
+			<student>Jonathan Sotelo (St. Edward's University, TX)</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>St. Edward's University, Texas</partner>
+		</project>
+		<project name="Rainwater Catchment System at Walden West Outdoor Science School">
+			<student>Jessica Bolanos</student>
+			<student>Melissa Crapps</student>
+			<student>Alessandro Folchi</student>
+			<advisor>Steven Chiesa</advisor>
+			<advisor>Edwin Maurer</advisor>
+			<partner>Walden West</partner>
+		</project>
+	</category>
+	<category name="Mobile For Humanity">
+		<project name="Mobile Forum for Education">
+			<student>Suzanne Lien</student>
+			<student>Alexandria Shearer</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="salaUno CATRA">
+			<student>Anthea Buchin</student>
+			<student>Ruth Borrud</student>
+			<student>Timothy Cheng</student>
+			<student>Jasmin Gonzalez</student>
+			<student>Alec Nicholas</student>
+			<student>Layne Orr</student>
+			<student>Sean Screws</student>
+			<advisor>Radha R. Basu</advisor>
+		</project>
+		<project name="FACE (Fair-Trade Aid Calculator for Everyone)">
+			<student>Ryan Davidson</student>
+			<student>Eva Jensen</student>
+			<student>Rosalie Tolantino</student>
+			<advisor>Silvia Figueira</advisor>
+			<advisor>Radha R. Basu</advisor>
+		</project>
+		<project name="Get Me There">
+			<description>An iPhone application that will allow individuals with learning disabilities to travel through their communities independently. Our primary user group currently consists of the students at the Santa Clara Adult Education Center.</description>
+			<student>Joe Schneider</student>
+			<student>Ken Wigginton</student>
+			<student>Monica Camorongan</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Shoba Krishnan</partner>
+		</project>
+		<project name="Seed Bank Tracking in Nicaragua">
+			<description>Frugal Innovation’s Mobile Health Lab helped Assistant Professor Chris Bacon and his student Ian Dougherty from the Department of Environmental Studies to test a mobile tracking solution for seed banks in Nicaragua. The project aims to help seed banks collect, store, and analyze data from seed deposits and withdrawals to help combat seasonal hunger. Mobile Lab TA Ryan Davidson worked with Ian to install an OpenXData server in Nicaragua and create the electronic data collection forms to be filled in via mobile phone. This initial implementation increased the efficiency of seed banks in the area by allowing them to share pricing and quantity data. Eventually the data collected at each seed bank will be analyzed for trends, which can then be used to prevent seasonal hunger due to shortages of seed. This is an example of how the tools hosted by the Mobile Health Lab can be utilized by organizations to test, develop, and distribute functional mobile software applications.</description>
+			<student>Ian Dougherty</student>
+			<student>Ryan Davidson</student>
+			<advisor>Chris Bacon</advisor>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="NetHope and SCU Mobile Health Interoperability Research">
+			<description>FIL is working with NetHope to discover how to further utilize existing technology primarily in health related fields. NetHope is an organization that is dedicated to bringing together humanitarian organizations in order to share information and practices to serve people in the developing world. This particular project explores how to analyze and develop solutions for mHealth. Demonstration &amp; Interoperability Lab with openXdata, DHIS 2, and OpenMRS.  Pilot with Kenya MOH.</description>
+			<student>Arturo Posadas</student>
+			<student>John Seubert</student>
+			<student>Jesus Gonzalez</student>
+			<student>Ryan Davidson</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="Mobile Platform for Vocal Pattern Analysis">
+			<description>Coming Soon</description>
+		</project>
+
+		<project name="eRescue">
+			<description>A consumer-facing android based mobile application was developed to locate CPR-certified users within a specified region whenever they are necessary.</description>
+			<student>Rosemary Pham</student>
+			<student>Casey Larson</student>
+			<student>Kristen Muramoto</student>
+			<student>Timothy So</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="StreetConnect">
+			<description>This project began as an idea at Community Technology Alliance (CTA), a local organization which combines technical expertise, government regulation, and a non-profit understanding to build systems collaboratively with communities and service agencies to support the homeless. CTA came to SCU wanting a group of students to implement a mobile app that would help improve their lives by utilizing a fact that many homeless people have phones. Our project is a system which provides text announcements about services such as food, shelter, jobs, and health. People can register their phone numbers online and choose which services they wish to receive text updates for, and whether they should be location-specific. Then, organizations post their announcements or event information to a web portal, and these are sent to all of the registered phone numbers in the database signed up for those services. All of the registered people’s information is stored in a database and easily changed online with the use of a one-time password. This app is clean and simple, and provides a unique service for the homeless community which has never been done before.</description>
+			<student>COEN 129 Students, Spring 2013 (Continued in 'Street Connect II' by Nicholas Fong)</student>
+			<advisor>Silvia Figuiera</advisor>
+		</project>
+		<project name="IhaveIneed">
+
+, Associate Professor of Computer Engineering
+			<student>Aaraadhya Narra</student>
+			<advisor>Silvia Figuiera</advisor>
+		</project>
+		<project name="Educating about Homelessness">
+			<student>Rohit Kalindini</student>
+			<student>Anusha Kasum</student>
+			<student>Urja Patel</student>
+			<student>Jay Sheth</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Tech Museum of Innovation</partner>
+			<partner>Community Technology Alliance (CTA)</partner>
+		</project>
+		<project name="Energy Profile for Mobile Usage">
+			<student>Udaya Yalamanchi</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="Hack for the Homeless Event">
+			<advisor>Silvia Figueira</advisor>
+			<partner>Community Technology Alliance (CTA)</partner>
+			<partner>Dew Mobility</partner>
+			<partner>Frugal Innovation Lab</partner>
+			<partner>HTC</partner>
+			<partner>IEEE Santa Clara Valley SIGHT</partner>
+			<partner>Microsoft</partner>
+			<partner>Vodafone Americas Foundation</partner>
+			<partner>Western Digital</partner>
+		</project>
+		<project name="Mobile Health Solution for Under-Served Young Women">
+			<student>Kaitlin Kirasich</student>
+			<student>Katie Le</student>
+			<student>Kelsey Dedoshka</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Community Technology Alliance (CTA)</partner>
+			<partner>Youth + Tech + Health (YTH)</partner>
+		</project>
+		<project name="Mobile Security">
+			<student>Nagasushma Devarapalli</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="NVIDIA Cuda Lab">
+			<advisor>Maria Pantoja</advisor>
+			<partner>NVIDIA</partner>
+		</project>
+		<project name="StreetConnect II">
+			<student>Nicholas Fong</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Community Technology Alliance (CTA)</partner>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+		<project name="StreetPhone (LowPower Phones)">
+			<student>Sean Kinzer</student>
+			<student>Daniel Marks</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Community Technology Alliance (CTA)</partner>
+		</project>
+		<project name="Stress-Reliever for High-Risk Families">
+			<student>Stephanie Cervi</student>
+			<student>Patrick Neill</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="TextTETEA - A Mobile Education Service">
+			<student>Michael Neumann</student>
+			<advisor>Christopher Kitts</advisor>
+			<partner>Harvard Business School</partner>
+			<partner>Harvard Kennedy School</partner>
+			<partner>Roelandts (CSTS)</partner>
+			<partner>TETEA</partner>
+			<partner>LESCOTA</partner>
+		</project>			
+		<project name="Tree Mapping">
+			<student>Jonathan Ahumada</student>
+			<student>Rashmi Nagaraju</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Hewlett-Packard</partner>
+			<partner>Conservation International</partner>
+		</project>
+		<project name="Volunteer Connection">
+			<student>Samira Almendras</student>
+			<student>Jesus Gonzalez</student>
+			<student>Stefan Zecevic</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+	</category>
+	<category name="Community Projects">
+		<project name="Community Projects">
+			<advisor>Shoba Krishnan</advisor>
+			<advisor>Patti Rimland</advisor>
+		</project>			
+		<project name="Community Projects ENGR 110">
+			<advisor>Geetha Arun</advisor>
+		</project>
+	</category>
+	<category name="Livelihood Development">
+		<project name="App for Artisans">
+			<student>Nishant Bisen</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>SOKO</partner>
+		</project>
+		<project name="Poverty Crusher">
+			<student>Rob Golterman</student>
+			<student>Brian Hammond</student>
+			<student>Thien-Ryan Le</student>
+			<student>Arvin Lie</student>
+			<advisor>Timothy Hight</advisor>
+			<partner>Santa Clara Ignatian Center</partner>
+			<partner>SCU School of Engineering</partner>
+		</project>			
+		<project name="Text to Learn">
+			<student>Melissa Bica</student>
+			<student>Elizabeth Donahue</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+	</category>
+	<category name="Other Interdisciplinary">
+		<project name="AkaBot: 3D Printing Filament Extruder">
+			<student>Emily Albi</student>
+			<student>Kevin Kozel</student>
+			<student>Daniel Ventoza</student>
+			<student>Rachel Wilmoth</student>
+			<advisor>Panthea Seperhband</advisor>
+			<partner>Roelandts (CSTS)</partner>
+			<partner>ASME</partner>
+			<partner>SCU School of Engineering</partner>
+			<partner>Santa Clara Entrepreneurs Organization</partner>
+		</project>
+		<project name="Beacon Pack">
+			<student>Aidan Barbari</student>
+			<student>Bryant Larsen</student>
+			<student>Jimmy Mack</student>
+			<student>James Terry</student>
+			<student>Thomas Martin</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>			
+		<project name="Citizen Tree Mapping">
+			<student>Guilherme Carvalho</student>
+			<student>Tian Zhang</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>
+		<project name="Engineers without Borders">
+			<student>Rebecca Barney</student>
+			<advisor>Tonya Nilsson</advisor>
+		</project>
+		<project name="Luminant Display">
+			<student>JP Allport</student>
+			<student>Omar Rodriguez</student>
+			<advisor>Radhika Grover</advisor>
+			<advisor>Shoba Krishnan</advisor>
+
+		</project>			
+		<project name="Tech Museum Innovation Workshops of 2014">
+			<partner>Tech Museum of Innovation</partner>
+			<partner>Tech Awards</partner>
+			<partner>NASDAQ</partner>
+			<partner>Accenture</partner>
+		</project>
+		<project name="3D Printing Committee">
+			<student>Nabilah Deen</student>
+			<advisor>Pravin Jain</advisor>
+			<advisor>Shradha Gripe</advisor>
+			<advisor>Elizabeth Sweeny</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+	</category>
+	<category name="Public Health">
+		<project name="Fertile Days Ahead">
+			<student>Astha Singh</student>
+			<advisor>Silvia Figueira</advisor>
+		</project>			
+		<project name="Hearing Aid">
+			<student>Prashanthan Surendran</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>
+		<project name="Hearing Loss Detector (Mobile Audiometry Application)">
+			<student>Shweta Panditrao</student>
+			<student>Kevin Nguyen</student>
+			<advisor>Silvia Figueira</advisor>
+			<partner>Dr. Stephane Pigeon</partner>
+		</project>
+		<project name="Mobile Cooler for the Last Mile Distribution of Vaccines in Developing Nations">
+			<student>Paul Novisoff</student>
+			<student>Arturo Nunez Perez</student>
+			<student>Ryne Sitar</student>
+			<advisor>Hohyun Lee</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>			
+		<project name="Wireless Impact Sensing Headband">
+			<student>Ryan Daly</student>
+			<student>Doug Furstinger</student>
+			<student>Tim Sashegyi</student>
+			<student>Nicklaus Schmidt</student>
+			<student>Mihir Shah</student>
+			<advisor>Shoba Krishnan</advisor>
+			<advisor>Christopher Kitts</advisor>
+		</project>
+	</category>
+	<category name="Sustainable Building">
+		<project name="Bamboo Connection Designs for Seismic Areas">
+			<student>Erik McAdams</student>
+			<student>Jenny Van Truong</student>
+			<advisor>Mark Aschheim</advisor>
+			<advisor>Tonya Nilsson</advisor>
+		</project>
+		<project name="Cold Climate Solar Thermal Greenhouse">
+			<student>Samuel Heath</student>
+			<student>Ashley Husbands</student>
+			<student>Cora Lemar</student>
+			<student>Mariko Tollan</student>
+			<advisor>Tracy Abbott</advisor>
+			<advisor>Tonya Nilsson</advisor>
+			<advisor>Sukhmander Singh</advisor>
+			<partner>Roelandts (CSTS)</partner>
+		</project>			
+		<project name="Ductile Bamboo Structures">
+			<student>Tommy Baldacci</student>
+			<student>Jonathan Chimento</student>
+			<student>John Drayton</student>
+			<advisor>Mark Aschheim</advisor>
+			<advisor>Tonya Nilsson</advisor>
+			<partner>School of Engineering</partner>
+		</project>
+		<project name="Straw Bale Seismic Design Capacities 2">
+			<student>Beth Avon</student>
+			<student>Brittnie Swartchick</student>
+			<advisor>Mark Aschheim</advisor>
+			<advisor>Tonya Nilsson</advisor>
+		</project>
+	</category>
+</categories>

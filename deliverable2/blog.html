@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>Frugal Innovation | Blog</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Economica:400,700' rel='stylesheet' type='text/css'>
-    <link href='style.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'/>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+    <link href='nav.css' rel='stylesheet' type='text/css'/>
     <style>
         #banner, #blog
         {
             width:68%;
         }
-        h4
+        #newPost h3
         {
             margin-bottom:0;
+            font-size:1.05em;
         }
         .date
         {
@@ -34,6 +36,7 @@
         }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="nav.js"></script>
     <script>
         $(document).ready(function(){
             $.post("showBlog.php", null, function(data, status){
@@ -52,7 +55,7 @@
                     else if($("#post").val() === ""){
                         $("#post").css("border-color", "rgb(255,0,0)");
                         alert("The post field is necessary for post submission!");
-                        return;
+			return;
                     }
                     alert("The title field is necessary for post submission!");
                     return;
@@ -74,6 +77,8 @@
     </script>
 </head>
 <body>
+    <div id="navBar">
+    </div>
     <div id="banner">
         <img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/SCU_Mission_and_Palm_Trees.jpg" alt="SCU Palm Drive" id="bannerImg">
         <div id="bannerText"><h2>Frugal Innovation Blog</h2></div>
@@ -83,13 +88,13 @@
     <div id="newPost">
         <h2>New Post</h2>
         <form id="blogForm">
-            <h4>Title:</h4>
+            <h3>Title:</h3>
             <input type="text" id="title" name="title"/>
-            <h4>Post:</h4>
+            <h3>Post:</h3>
             <textarea id="post" name="post" maxlength="1000" form="blogForm"></textarea>
-            <h4>Author: (if left empty, will be posted anonymously)</h4>
+            <h3>Author: (if left empty, will be posted anonymously)</h3>
             <input type="text" id="author" name="author"/>
-            <h4>Tags:</h4>
+            <h3>Tags:</h3>
             <input type="text" id="tag" name="tag"/>
             <input type="submit" id="button" value="Create Post"/>
         </form>
