@@ -74,8 +74,11 @@ hr
     border:none;
     height:1px;
     background-color:rgba(0,0,0,0.7);
+<<<<<<< HEAD
+=======
 }
 h2, h3, h4, h5
 {
     font-family:Economica, serif;
+>>>>>>> d44bf80ef597911d542f86d3f2d7ebe1b614ecfd
 }

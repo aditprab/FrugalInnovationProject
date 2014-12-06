@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> Dashboard </title>
+    <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        html, body
+        {
+            font-family:'Nixie One', cursive;
+            height:100%;
+            background-image: url("https://unsplash.imgix.net/uploads/14131528928453585b6dc/829d24cf?q=75&fm=jpg&s=eaf9f7f2b07eabc753b9ea3c7c65b2d7");
+        }
+
+        #overall
+        {
+            position:relative;
+            width:70%;
+            height:20%;
+            padding:5% 5%;
+            margin:0 auto;
+            text-align:center;
+        }
+
+      .css-button{ 
+               font-size:20px;
+                -webkit-border-radius:0;
+                border:1px solid rgba(215,215,215,1.0);
+                background-color: #ecf0f1;
+                padding:2% 3%;
+                cursor:pointer;
+                font-family:'Nixie One', cursive;
+                margin-top: 2em;
+        } 
+        .css-button2{ 
+               font-size:20px;
+                -webkit-border-radius:0;
+                border:1px solid rgba(215,215,215,1.0);
+                background-color: #ecf0f1;
+                padding:2% 3%;
+                cursor:pointer;
+                font-family:'Nixie One', cursive;
+                margin-top: 2em;
+        } 
+        .divider{
+            /* all this class does is put some space between the buttons. */
+            width:10px;
+            height:auto;
+            display:inline-block;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="overall"> 
+        <h1> This is your dashboard. Click any of the following buttons.</h1>
+        <button class="css-button"> Donations </button>
+        <div class="divider"> </div>
+        <button class="css-button2"> Proposals </button>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+            $('.css-button').click(function() {
+                window.location.href = 'donationsDash.php';
+                return false;
+            });
+            $('.css-button2').click(function() {
+                window.location.href = 'proposalsDash.php';
+                return false;
+            });
+    }
+
+</script>
+</html>
+
+
